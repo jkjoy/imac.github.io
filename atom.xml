@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>老孙博客</title>
+  <title>黑苹果博客</title>
   
-  <subtitle>资深网民孙先生</subtitle>
-  <link href="https://weblog.js.org/atom.xml" rel="self"/>
+  <subtitle>爱吃黑苹果</subtitle>
+  <link href="https://imac.press/atom.xml" rel="self"/>
   
-  <link href="https://weblog.js.org/"/>
+  <link href="https://imac.press/"/>
   <updated>2023-04-10T05:10:31.000Z</updated>
-  <id>https://weblog.js.org/</id>
+  <id>https://imac.press/</id>
   
   <author>
     <name>老孙</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>bandwagonhost搬瓦工2023年最新优惠码</title>
-    <link href="https://weblog.js.org/bandwagonhost-ban-wa-gong-2023-nian-zui-xin-you-hui-ma/"/>
-    <id>https://weblog.js.org/bandwagonhost-ban-wa-gong-2023-nian-zui-xin-you-hui-ma/</id>
+    <link href="https://imac.press/posts/58225.html"/>
+    <id>https://imac.press/posts/58225.html</id>
     <published>2023-04-10T01:27:17.000Z</published>
     <updated>2023-04-10T05:10:31.000Z</updated>
     
@@ -30,21 +30,21 @@
     
     
     
-    <category term="分享" scheme="https://weblog.js.org/categories/%E5%88%86%E4%BA%AB/"/>
+    <category term="分享" scheme="https://imac.press/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="搬瓦工" scheme="https://weblog.js.org/tags/%E6%90%AC%E7%93%A6%E5%B7%A5/"/>
+    <category term="搬瓦工" scheme="https://imac.press/tags/%E6%90%AC%E7%93%A6%E5%B7%A5/"/>
     
-    <category term="优惠码" scheme="https://weblog.js.org/tags/%E4%BC%98%E6%83%A0%E7%A0%81/"/>
+    <category term="优惠码" scheme="https://imac.press/tags/%E4%BC%98%E6%83%A0%E7%A0%81/"/>
     
-    <category term="教程" scheme="https://weblog.js.org/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://imac.press/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Typecho配置全站CDN加速</title>
-    <link href="https://weblog.js.org/typecho-pei-zhi-quan-zhan-cdn-jia-su/"/>
-    <id>https://weblog.js.org/typecho-pei-zhi-quan-zhan-cdn-jia-su/</id>
+    <link href="https://imac.press/posts/26214.html"/>
+    <id>https://imac.press/posts/26214.html</id>
     <published>2023-04-06T08:15:41.000Z</published>
     <updated>2023-04-10T04:34:37.761Z</updated>
     
@@ -55,21 +55,21 @@
     
     
     
-    <category term="分享" scheme="https://weblog.js.org/categories/%E5%88%86%E4%BA%AB/"/>
+    <category term="分享" scheme="https://imac.press/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="typecho" scheme="https://weblog.js.org/tags/typecho/"/>
+    <category term="typecho" scheme="https://imac.press/tags/typecho/"/>
     
-    <category term="cdn" scheme="https://weblog.js.org/tags/cdn/"/>
+    <category term="cdn" scheme="https://imac.press/tags/cdn/"/>
     
-    <category term="upyun" scheme="https://weblog.js.org/tags/upyun/"/>
+    <category term="upyun" scheme="https://imac.press/tags/upyun/"/>
     
   </entry>
   
   <entry>
     <title>markdown中的各种技巧</title>
-    <link href="https://weblog.js.org/markdown-zhong-de-ge-chong-ji-qiao/"/>
-    <id>https://weblog.js.org/markdown-zhong-de-ge-chong-ji-qiao/</id>
+    <link href="https://imac.press/posts/10820.html"/>
+    <id>https://imac.press/posts/10820.html</id>
     <published>2023-04-03T07:58:37.000Z</published>
     <updated>2023-04-10T04:34:37.761Z</updated>
     
@@ -80,19 +80,19 @@
     
     
     
-    <category term="分享" scheme="https://weblog.js.org/categories/%E5%88%86%E4%BA%AB/"/>
+    <category term="分享" scheme="https://imac.press/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="教程" scheme="https://weblog.js.org/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://imac.press/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="markdown" scheme="https://weblog.js.org/tags/markdown/"/>
+    <category term="markdown" scheme="https://imac.press/tags/markdown/"/>
     
   </entry>
   
   <entry>
     <title>【2023】注册Vultr教程和送100美金活动！</title>
-    <link href="https://weblog.js.org/2023-zhu-ce-vultr-jiao-cheng-he-song-100-mei-jin-huo-dong/"/>
-    <id>https://weblog.js.org/2023-zhu-ce-vultr-jiao-cheng-he-song-100-mei-jin-huo-dong/</id>
+    <link href="https://imac.press/posts/48121.html"/>
+    <id>https://imac.press/posts/48121.html</id>
     <published>2023-04-03T03:39:10.000Z</published>
     <updated>2023-04-10T04:34:37.762Z</updated>
     
@@ -103,19 +103,19 @@
     
     
     
-    <category term="分享" scheme="https://weblog.js.org/categories/%E5%88%86%E4%BA%AB/"/>
+    <category term="分享" scheme="https://imac.press/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="vultr" scheme="https://weblog.js.org/tags/vultr/"/>
+    <category term="vultr" scheme="https://imac.press/tags/vultr/"/>
     
-    <category term="vps" scheme="https://weblog.js.org/tags/vps/"/>
+    <category term="vps" scheme="https://imac.press/tags/vps/"/>
     
   </entry>
   
   <entry>
     <title>国内注册ChatGPT的方法</title>
-    <link href="https://weblog.js.org/guo-nei-zhu-ce-chatgpt-de-fang-fa/"/>
-    <id>https://weblog.js.org/guo-nei-zhu-ce-chatgpt-de-fang-fa/</id>
+    <link href="https://imac.press/posts/52429.html"/>
+    <id>https://imac.press/posts/52429.html</id>
     <published>2023-04-03T03:28:43.000Z</published>
     <updated>2023-04-10T04:34:37.762Z</updated>
     
@@ -126,23 +126,23 @@
     
     
     
-    <category term="分享" scheme="https://weblog.js.org/categories/%E5%88%86%E4%BA%AB/"/>
+    <category term="分享" scheme="https://imac.press/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="教程" scheme="https://weblog.js.org/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://imac.press/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="chatgpt" scheme="https://weblog.js.org/tags/chatgpt/"/>
+    <category term="chatgpt" scheme="https://imac.press/tags/chatgpt/"/>
     
-    <category term="openai" scheme="https://weblog.js.org/tags/openai/"/>
+    <category term="openai" scheme="https://imac.press/tags/openai/"/>
     
-    <category term="注册" scheme="https://weblog.js.org/tags/%E6%B3%A8%E5%86%8C/"/>
+    <category term="注册" scheme="https://imac.press/tags/%E6%B3%A8%E5%86%8C/"/>
     
   </entry>
   
   <entry>
     <title>Git在windows下区分大小写</title>
-    <link href="https://weblog.js.org/note/git-zai-windows-xia-qu-fen-da-xiao-xie/"/>
-    <id>https://weblog.js.org/note/git-zai-windows-xia-qu-fen-da-xiao-xie/</id>
+    <link href="https://imac.press/posts/61166.html"/>
+    <id>https://imac.press/posts/61166.html</id>
     <published>2023-03-21T11:03:13.000Z</published>
     <updated>2023-04-10T04:34:37.724Z</updated>
     
@@ -153,17 +153,17 @@
     
     
     
-    <category term="Note" scheme="https://weblog.js.org/categories/Note/"/>
+    <category term="Note" scheme="https://imac.press/categories/Note/"/>
     
     
-    <category term="git" scheme="https://weblog.js.org/tags/git/"/>
+    <category term="git" scheme="https://imac.press/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>魔趣倒了 安卓的刷机时代正式宣布结束了</title>
-    <link href="https://weblog.js.org/note/mo-qu-dao-liao-an-zhuo-de-shua-ji-shi-dai-zheng-shi-xuan-bu-jie-shu-liao/"/>
-    <id>https://weblog.js.org/note/mo-qu-dao-liao-an-zhuo-de-shua-ji-shi-dai-zheng-shi-xuan-bu-jie-shu-liao/</id>
+    <link href="https://imac.press/posts/1177.html"/>
+    <id>https://imac.press/posts/1177.html</id>
     <published>2023-01-11T02:15:24.000Z</published>
     <updated>2023-01-11T02:15:24.000Z</updated>
     
@@ -174,15 +174,15 @@
     
     
     
-    <category term="Note" scheme="https://weblog.js.org/categories/Note/"/>
+    <category term="Note" scheme="https://imac.press/categories/Note/"/>
     
     
   </entry>
   
   <entry>
     <title>2022年12月8日终于全国防疫放开管控了</title>
-    <link href="https://weblog.js.org/note/2022-nian-12-yue-8-ri-zhong-yu-quan-guo-fang-yi-fang-kai-guan-kong-liao/"/>
-    <id>https://weblog.js.org/note/2022-nian-12-yue-8-ri-zhong-yu-quan-guo-fang-yi-fang-kai-guan-kong-liao/</id>
+    <link href="https://imac.press/posts/2091.html"/>
+    <id>https://imac.press/posts/2091.html</id>
     <published>2022-12-08T02:23:38.000Z</published>
     <updated>2023-04-10T04:34:37.721Z</updated>
     
@@ -193,19 +193,19 @@
     
     
     
-    <category term="Note" scheme="https://weblog.js.org/categories/Note/"/>
+    <category term="Note" scheme="https://imac.press/categories/Note/"/>
     
     
-    <category term="生活" scheme="https://weblog.js.org/tags/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://imac.press/tags/%E7%94%9F%E6%B4%BB/"/>
     
-    <category term="疫情" scheme="https://weblog.js.org/tags/%E7%96%AB%E6%83%85/"/>
+    <category term="疫情" scheme="https://imac.press/tags/%E7%96%AB%E6%83%85/"/>
     
   </entry>
   
   <entry>
     <title>pip安装nonebot时报错</title>
-    <link href="https://weblog.js.org/linux/pip-an-zhuang-nonebot-shi-bao-cuo/"/>
-    <id>https://weblog.js.org/linux/pip-an-zhuang-nonebot-shi-bao-cuo/</id>
+    <link href="https://imac.press/posts/46587.html"/>
+    <id>https://imac.press/posts/46587.html</id>
     <published>2022-12-01T04:52:00.000Z</published>
     <updated>2022-12-01T10:27:23.000Z</updated>
     
@@ -216,17 +216,17 @@
     
     
     
-    <category term="Linux" scheme="https://weblog.js.org/categories/Linux/"/>
+    <category term="Linux" scheme="https://imac.press/categories/Linux/"/>
     
     
-    <category term="python" scheme="https://weblog.js.org/tags/python/"/>
+    <category term="python" scheme="https://imac.press/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>centos7安装后没有网络</title>
-    <link href="https://weblog.js.org/linux/centos7-an-zhuang-hou-mei-you-wang-luo/"/>
-    <id>https://weblog.js.org/linux/centos7-an-zhuang-hou-mei-you-wang-luo/</id>
+    <link href="https://imac.press/posts/6609.html"/>
+    <id>https://imac.press/posts/6609.html</id>
     <published>2022-11-29T01:56:00.000Z</published>
     <updated>2022-11-29T01:57:00.000Z</updated>
     
@@ -237,17 +237,17 @@
     
     
     
-    <category term="Linux" scheme="https://weblog.js.org/categories/Linux/"/>
+    <category term="Linux" scheme="https://imac.press/categories/Linux/"/>
     
     
-    <category term="centos" scheme="https://weblog.js.org/tags/centos/"/>
+    <category term="centos" scheme="https://imac.press/tags/centos/"/>
     
   </entry>
   
   <entry>
     <title>42个虚拟信用卡开卡渠道</title>
-    <link href="https://weblog.js.org/note/42-ge-xu-ni-xin-yong-qia-kai-qia-qu-dao/"/>
-    <id>https://weblog.js.org/note/42-ge-xu-ni-xin-yong-qia-kai-qia-qu-dao/</id>
+    <link href="https://imac.press/posts/22526.html"/>
+    <id>https://imac.press/posts/22526.html</id>
     <published>2022-11-29T00:47:15.000Z</published>
     <updated>2022-11-29T00:47:15.000Z</updated>
     
@@ -258,17 +258,17 @@
     
     
     
-    <category term="Note" scheme="https://weblog.js.org/categories/Note/"/>
+    <category term="Note" scheme="https://imac.press/categories/Note/"/>
     
     
-    <category term="虚拟信用卡" scheme="https://weblog.js.org/tags/%E8%99%9A%E6%8B%9F%E4%BF%A1%E7%94%A8%E5%8D%A1/"/>
+    <category term="虚拟信用卡" scheme="https://imac.press/tags/%E8%99%9A%E6%8B%9F%E4%BF%A1%E7%94%A8%E5%8D%A1/"/>
     
   </entry>
   
   <entry>
     <title>搜索引擎的必经之路？</title>
-    <link href="https://weblog.js.org/note/sou-suo-yin-qing-de-bi-jing-zhi-lu/"/>
-    <id>https://weblog.js.org/note/sou-suo-yin-qing-de-bi-jing-zhi-lu/</id>
+    <link href="https://imac.press/posts/44367.html"/>
+    <id>https://imac.press/posts/44367.html</id>
     <published>2022-11-25T09:10:05.000Z</published>
     <updated>2022-11-25T09:10:05.000Z</updated>
     
@@ -279,17 +279,17 @@
     
     
     
-    <category term="Note" scheme="https://weblog.js.org/categories/Note/"/>
+    <category term="Note" scheme="https://imac.press/categories/Note/"/>
     
     
-    <category term="bing" scheme="https://weblog.js.org/tags/bing/"/>
+    <category term="bing" scheme="https://imac.press/tags/bing/"/>
     
   </entry>
   
   <entry>
     <title>macOS与Windows双系统时间不同步的解决办法</title>
-    <link href="https://weblog.js.org/macos/macos-yu-windows-shuang-xi-tong-shi-jian-bu-tong-bu-de-jie-jue-ban-fa/"/>
-    <id>https://weblog.js.org/macos/macos-yu-windows-shuang-xi-tong-shi-jian-bu-tong-bu-de-jie-jue-ban-fa/</id>
+    <link href="https://imac.press/posts/34554.html"/>
+    <id>https://imac.press/posts/34554.html</id>
     <published>2022-11-15T05:07:00.000Z</published>
     <updated>2022-11-15T05:08:26.000Z</updated>
     
@@ -300,21 +300,21 @@
     
     
     
-    <category term="MacOS" scheme="https://weblog.js.org/categories/MacOS/"/>
+    <category term="MacOS" scheme="https://imac.press/categories/MacOS/"/>
     
     
-    <category term="macos" scheme="https://weblog.js.org/tags/macos/"/>
+    <category term="macos" scheme="https://imac.press/tags/macos/"/>
     
-    <category term="时间同步" scheme="https://weblog.js.org/tags/%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/"/>
+    <category term="时间同步" scheme="https://imac.press/tags/%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/"/>
     
-    <category term="windows" scheme="https://weblog.js.org/tags/windows/"/>
+    <category term="windows" scheme="https://imac.press/tags/windows/"/>
     
   </entry>
   
   <entry>
     <title>VK23黑苹果OpenCore0.8.5引导macOS12.6.1</title>
-    <link href="https://weblog.js.org/hackintosh/vk23-hei-ping-guo-opencore0.8.5-yin-dao-macos12.6.1/"/>
-    <id>https://weblog.js.org/hackintosh/vk23-hei-ping-guo-opencore0.8.5-yin-dao-macos12.6.1/</id>
+    <link href="https://imac.press/posts/56350.html"/>
+    <id>https://imac.press/posts/56350.html</id>
     <published>2022-11-08T06:23:36.000Z</published>
     <updated>2022-11-08T06:23:36.000Z</updated>
     
@@ -325,15 +325,15 @@
     
     
     
-    <category term="Hackintosh" scheme="https://weblog.js.org/categories/Hackintosh/"/>
+    <category term="Hackintosh" scheme="https://imac.press/categories/Hackintosh/"/>
     
     
   </entry>
   
   <entry>
     <title>NEC VK23T对比体验VK22T</title>
-    <link href="https://weblog.js.org/note/nec-vk23t-dui-bi-ti-yan-vk22t/"/>
-    <id>https://weblog.js.org/note/nec-vk23t-dui-bi-ti-yan-vk22t/</id>
+    <link href="https://imac.press/posts/51376.html"/>
+    <id>https://imac.press/posts/51376.html</id>
     <published>2022-11-08T06:02:00.000Z</published>
     <updated>2022-11-08T06:24:08.000Z</updated>
     
@@ -344,21 +344,21 @@
     
     
     
-    <category term="Note" scheme="https://weblog.js.org/categories/Note/"/>
+    <category term="Note" scheme="https://imac.press/categories/Note/"/>
     
     
-    <category term="nec" scheme="https://weblog.js.org/tags/nec/"/>
+    <category term="nec" scheme="https://imac.press/tags/nec/"/>
     
-    <category term="vk23" scheme="https://weblog.js.org/tags/vk23/"/>
+    <category term="vk23" scheme="https://imac.press/tags/vk23/"/>
     
-    <category term="测评" scheme="https://weblog.js.org/tags/%E6%B5%8B%E8%AF%84/"/>
+    <category term="测评" scheme="https://imac.press/tags/%E6%B5%8B%E8%AF%84/"/>
     
   </entry>
   
   <entry>
     <title>华硕b150m-et m2+rx560黑苹果oc0.8.5引导</title>
-    <link href="https://weblog.js.org/hackintosh/hua-shuo-b150m-et-m2-rx560-hei-ping-guo-oc0.8.5-yin-dao/"/>
-    <id>https://weblog.js.org/hackintosh/hua-shuo-b150m-et-m2-rx560-hei-ping-guo-oc0.8.5-yin-dao/</id>
+    <link href="https://imac.press/posts/26810.html"/>
+    <id>https://imac.press/posts/26810.html</id>
     <published>2022-10-21T06:58:00.000Z</published>
     <updated>2022-11-15T05:10:18.000Z</updated>
     
@@ -369,15 +369,15 @@
     
     
     
-    <category term="Hackintosh" scheme="https://weblog.js.org/categories/Hackintosh/"/>
+    <category term="Hackintosh" scheme="https://imac.press/categories/Hackintosh/"/>
     
     
   </entry>
   
   <entry>
     <title>office2016 Mac 版本下载安装及破解激活</title>
-    <link href="https://weblog.js.org/macos/office2016-mac-ban-ben-xia-zai-an-zhuang-ji-po-jie-ji-huo/"/>
-    <id>https://weblog.js.org/macos/office2016-mac-ban-ben-xia-zai-an-zhuang-ji-po-jie-ji-huo/</id>
+    <link href="https://imac.press/posts/58867.html"/>
+    <id>https://imac.press/posts/58867.html</id>
     <published>2022-10-14T00:25:18.000Z</published>
     <updated>2022-10-14T00:25:18.000Z</updated>
     
@@ -388,17 +388,17 @@
     
     
     
-    <category term="MacOS" scheme="https://weblog.js.org/categories/MacOS/"/>
+    <category term="MacOS" scheme="https://imac.press/categories/MacOS/"/>
     
     
-    <category term="office" scheme="https://weblog.js.org/tags/office/"/>
+    <category term="office" scheme="https://imac.press/tags/office/"/>
     
   </entry>
   
   <entry>
     <title>网鱼一体机b85+GTX960黑苹果Clover引导10.13.6</title>
-    <link href="https://weblog.js.org/hackintosh/wang-yu-yi-ti-ji-b85-gtx960-hei-ping-guo-clover-yin-dao-10.13.6/"/>
-    <id>https://weblog.js.org/hackintosh/wang-yu-yi-ti-ji-b85-gtx960-hei-ping-guo-clover-yin-dao-10.13.6/</id>
+    <link href="https://imac.press/posts/43877.html"/>
+    <id>https://imac.press/posts/43877.html</id>
     <published>2022-10-13T08:21:00.000Z</published>
     <updated>2022-10-14T00:25:38.000Z</updated>
     
@@ -409,21 +409,21 @@
     
     
     
-    <category term="Hackintosh" scheme="https://weblog.js.org/categories/Hackintosh/"/>
+    <category term="Hackintosh" scheme="https://imac.press/categories/Hackintosh/"/>
     
     
-    <category term="黑苹果" scheme="https://weblog.js.org/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/"/>
+    <category term="黑苹果" scheme="https://imac.press/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/"/>
     
-    <category term="clover" scheme="https://weblog.js.org/tags/clover/"/>
+    <category term="clover" scheme="https://imac.press/tags/clover/"/>
     
-    <category term="网鱼一体机" scheme="https://weblog.js.org/tags/%E7%BD%91%E9%B1%BC%E4%B8%80%E4%BD%93%E6%9C%BA/"/>
+    <category term="网鱼一体机" scheme="https://imac.press/tags/%E7%BD%91%E9%B1%BC%E4%B8%80%E4%BD%93%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>centos7 ssh连接慢的解决方法</title>
-    <link href="https://weblog.js.org/linux/centos7-ssh-lian-jie-man-de-jie-jue-fang-fa/"/>
-    <id>https://weblog.js.org/linux/centos7-ssh-lian-jie-man-de-jie-jue-fang-fa/</id>
+    <link href="https://imac.press/posts/58592.html"/>
+    <id>https://imac.press/posts/58592.html</id>
     <published>2022-08-12T08:52:00.000Z</published>
     <updated>2022-08-12T08:55:00.000Z</updated>
     
@@ -434,17 +434,17 @@
     
     
     
-    <category term="Linux" scheme="https://weblog.js.org/categories/Linux/"/>
+    <category term="Linux" scheme="https://imac.press/categories/Linux/"/>
     
     
-    <category term="centos" scheme="https://weblog.js.org/tags/centos/"/>
+    <category term="centos" scheme="https://imac.press/tags/centos/"/>
     
   </entry>
   
   <entry>
     <title>macOS锁屏时钟fliqlo</title>
-    <link href="https://weblog.js.org/macos/macos-suo-ping-shi-zhong-fliqlo/"/>
-    <id>https://weblog.js.org/macos/macos-suo-ping-shi-zhong-fliqlo/</id>
+    <link href="https://imac.press/posts/43383.html"/>
+    <id>https://imac.press/posts/43383.html</id>
     <published>2022-08-08T01:14:00.000Z</published>
     <updated>2023-04-10T04:34:37.719Z</updated>
     
@@ -455,14 +455,14 @@
     
     
     
-    <category term="MacOS" scheme="https://weblog.js.org/categories/MacOS/"/>
+    <category term="MacOS" scheme="https://imac.press/categories/MacOS/"/>
     
     
-    <category term="macos" scheme="https://weblog.js.org/tags/macos/"/>
+    <category term="macos" scheme="https://imac.press/tags/macos/"/>
     
-    <category term="下载" scheme="https://weblog.js.org/tags/%E4%B8%8B%E8%BD%BD/"/>
+    <category term="下载" scheme="https://imac.press/tags/%E4%B8%8B%E8%BD%BD/"/>
     
-    <category term="fliqlo" scheme="https://weblog.js.org/tags/fliqlo/"/>
+    <category term="fliqlo" scheme="https://imac.press/tags/fliqlo/"/>
     
   </entry>
   

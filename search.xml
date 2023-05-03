@@ -745,50 +745,6 @@
       </tags>
   </entry>
   <entry>
-    <title>黑苹果固态避坑指南</title>
-    <url>/posts/60346.html</url>
-    <content><![CDATA[<p><code>三星</code> <code>PM961</code> / <code>PM981</code> / <code>PM981a</code> / <code>PM991</code> 会导致 macOS 无法安装或正常运行</p>
-<p><code>三星</code> <code>983ZET</code>无法安装 macOS；</p>
-<p>2019 年 5 月以前出厂的 <code>三星</code> <code>970 EVO Plus</code>  可能存在和 <code>PM9x1</code> 系列类似的问题，但可以通过在Windows环境升级官方固件解决 macOS 兼容问题；</p>
-<p><code>镁光</code> <code>2200S </code>无法安装或稳定运行 macOS；</p>
-<p><code>爱国者</code> <code>P2000 256GB </code>无法通过 10.15、11.x、12.x 任何一个版本的正常安装流程，但不排除个例的可能；</p>
-<p>macOS 不支持使用 <code>Intel</code> <code>傲腾</code>（Optane Memory）或<code>镁光</code> <code>3D XPoint</code> 进行加速的笔记本电脑；</p>
-<h3 id="下面的型号是与-macOS-IONVMeFamily-兼容性不佳的型号（可能无故卡住或运行不正常）"><a href="#下面的型号是与-macOS-IONVMeFamily-兼容性不佳的型号（可能无故卡住或运行不正常）" class="headerlink" title="下面的型号是与 macOS IONVMeFamily 兼容性不佳的型号（可能无故卡住或运行不正常）"></a>下面的型号是与 macOS IONVMeFamily 兼容性不佳的型号（可能无故卡住或运行不正常）</h3><p><code>英特尔</code> <code>600P/660P/760P 系列</code></p>
-<p><code>金士顿</code> <code>A2000</code>：配置 <code>S5Z42105 </code>控制器的版本必须搭配<code> NVMeFix.kext 1.0.8</code> 及以上，也可能完全无法安装；</p>
-<p><code>海力士</code> <code>PC601/PC611/PC711/BC501</code>：主要见于联想和戴尔笔记本，部分批次正常部分会卡住；</p>
-<p><code>技嘉</code> <code>GIGABYTE M.2 PCIe SSD</code>（比如 <code>GP-GSM2NE8512GNTD</code>）</p>
-<p><code>威刚</code> <code>剑鱼 ADATA Swordfish 2 TB M.2-2280</code></p>
-<p><code>海力士</code> <code>SK Hynix HFS001TD9TNG-L5B0B</code></p>
-<p><code>海力士</code> <code>SK Hynix P31</code></p>
-<p><code>镁光</code> <code>Micron 2200V MTFDHBA512TCK</code> -<code>移速的256G</code>同样使用的镁光颗粒无法安装；</p>
-<p><code>阿斯加特</code> <code>Asgard AN3+ (STAR1000P)</code></p>
-<p><code>朗科</code> <code>Netac NVME SSD 480</code></p>
-<p><code>西部数据</code> <code>SN550/570/730/750/850 </code>都能正常安装和运行 macOS；</p>
-<p><code>三星</code> <code>970EVO/Pro/Plus</code>（升级固件后）和 <code>980/980 Pro</code> 都能正常安装和运行 macOS，但是此系列存在 <code>TRIM </code>支持问题；</p>
-<p><code>海盗船</code> <code>MP400/MP600 </code>系列均能正常安装运行 macOS；</p>
-<p>绝大部分常见的 SATA 接口固态盘都能正常安装和运行 macOS；</p>
-<h3 id="不完全支持-TRIM（主要影响特定条件下的写入速度，什么是-TRIM？），但安装运行正常的型号："><a href="#不完全支持-TRIM（主要影响特定条件下的写入速度，什么是-TRIM？），但安装运行正常的型号：" class="headerlink" title="不完全支持 TRIM（主要影响特定条件下的写入速度，什么是 TRIM？），但安装运行正常的型号："></a>不完全支持<code> TRIM</code>（主要影响特定条件下的写入速度，什么是 TRIM？），但安装运行正常的型号：</h3><p><code>三星</code> <code>Samsung 950 Pro</code></p>
-<p><code>三星</code> <code>Samsung 960 Evo/Pro</code></p>
-<p><code>三星</code> <code>Samsung 970 Evo/Pro</code></p>
-<p>「重要提示」在 <code>macOS 12.0</code> 及以上版本中，OpenCore 无法再修改 APFS 文件系统的 <code>TRIM </code>超时数值，部分执行 <code>TRIM </code>相对较慢的固态硬盘（主要是三星的控制器）将没有足够的时间执行 <code>TRIM</code> 操作。<br>不正确的设置可能导致进入系统缓慢，因此对 macOS <code>TRIM </code>支持度不佳的硬盘建议将 <code>SetApfsTrimTimeout </code>值改成 0 以关闭 <code>TRIM</code>，或 -1 以关闭该功能。此现象在 <code>12.3</code> 及以上的版本中尤其明显。</p>
-<h3 id="完整支持-macOS-TRIM-的型号："><a href="#完整支持-macOS-TRIM-的型号：" class="headerlink" title="完整支持 macOS TRIM 的型号："></a>完整支持 macOS TRIM 的型号：</h3><p><code>西部数据</code> SN5xx/7xx 系列（未完全测试）</p>
-<p><code>英睿达</code> Crucial P1 1TB NVME（SM2263EN，未完全测试）</p>
-<p><code>金典</code> KingDian S280（SATA）</p>
-<p><code>浦科特</code> PLEXTOR M5Pro（SATA）</p>
-<p><code>三星</code> Samsung 850 PRO（SATA，未完全测试）</p>
-<p><code>三星</code> Samsung 870 EVO（SATA，未完全测试）</p>
-]]></content>
-      <categories>
-        <category>Hackintosh</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-        <tag>硬盘</tag>
-        <tag>固态</tag>
-        <tag>samsung</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>黑苹果开机出现error loading kernel cache 0x1</title>
     <url>/posts/60068.html</url>
     <content><![CDATA[<p>出现这个错误的原因是系统缓存出现错误<br>在google上看到国外黑苹果论坛给出了解决办法</p>
@@ -1331,7 +1287,7 @@
     <title>自带邮局的vps面板vestacp</title>
     <url>/posts/48280.html</url>
     <content><![CDATA[<h1 id="Supported-Operating-Systems"><a href="#Supported-Operating-Systems" class="headerlink" title="Supported Operating Systems:"></a>Supported Operating Systems:</h1><h1 id="RHEL-CentOS-5-6-7"><a href="#RHEL-CentOS-5-6-7" class="headerlink" title="RHEL / CentOS 5,6,7"></a>RHEL / CentOS 5,6,7</h1><h1 id="Debian-6-7-8"><a href="#Debian-6-7-8" class="headerlink" title="Debian 6,7,8"></a>Debian 6,7,8</h1><h1 id="Ubuntu-12-04-16-10"><a href="#Ubuntu-12-04-16-10" class="headerlink" title="Ubuntu 12.04-16.10"></a>Ubuntu 12.04-16.10</h1><h1 id="Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器"><a href="#Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器" class="headerlink" title="Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器"></a>Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器</h1><blockquote>
-<p>ssh <a href="mailto:&#114;&#111;&#111;&#116;&#64;&#121;&#x6f;&#117;&#x72;&#x2e;&#x73;&#x65;&#x72;&#118;&#x65;&#x72;">&#114;&#111;&#111;&#116;&#64;&#121;&#x6f;&#117;&#x72;&#x2e;&#x73;&#x65;&#x72;&#118;&#x65;&#x72;</a></p>
+<p>ssh <a href="mailto:&#114;&#x6f;&#111;&#116;&#64;&#x79;&#111;&#117;&#114;&#x2e;&#x73;&#x65;&#114;&#x76;&#x65;&#114;">&#114;&#x6f;&#111;&#116;&#64;&#x79;&#111;&#117;&#114;&#x2e;&#x73;&#x65;&#114;&#x76;&#x65;&#114;</a></p>
 </blockquote>
 <h1 id="Download-installation-script-下载安装脚本"><a href="#Download-installation-script-下载安装脚本" class="headerlink" title="Download installation script 下载安装脚本"></a>Download installation script 下载安装脚本</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O http://vestacp.com/pub/vst-install.sh</span><br></pre></td></tr></table></figure>
 
@@ -2644,19 +2600,6 @@
       </tags>
   </entry>
   <entry>
-    <title>红米redmi note7上手体验</title>
-    <url>/posts/11321.html</url>
-    <content><![CDATA[<p>红米note7第二批抢购就买到了 摄像头拍照的效果并不是很理想 但是作为一个直男来说也不在意拍照的效果 玩游戏尚可，总觉得王者荣耀操作起来不那么连贯。 特别是网易的非人学园玩起来简直体验极差补刀键怎么点都没反应 用iphone玩就没有这些 续航方面骁龙660感觉不如625省电 手感倒是不错 作为一个米粉最不忍受的就是距离传感器老是有些问题 <strong>特别是打电话黑屏之后就不亮屏了！</strong> 偶尔下滑状态栏的时候也会有提示按音量+才可以解除防误触的情况 不知道是不是我把防误触打开才造成的，有待验证。 以上便是我一个月来的使用感受</p>
-]]></content>
-      <categories>
-        <category>Note</category>
-      </categories>
-      <tags>
-        <tag>吐槽</tag>
-        <tag>红米</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>继续折腾黑苹果</title>
     <url>/posts/33960.html</url>
     <content><![CDATA[<p>目前的系统版本为 10.10.5 (14F2109) 安装xcode才发现竟然是不支持，必须要10.11以上版本才可以。</p>
@@ -2669,6 +2612,19 @@
       <tags>
         <tag>黑苹果</tag>
         <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>红米redmi note7上手体验</title>
+    <url>/posts/11321.html</url>
+    <content><![CDATA[<p>红米note7第二批抢购就买到了 摄像头拍照的效果并不是很理想 但是作为一个直男来说也不在意拍照的效果 玩游戏尚可，总觉得王者荣耀操作起来不那么连贯。 特别是网易的非人学园玩起来简直体验极差补刀键怎么点都没反应 用iphone玩就没有这些 续航方面骁龙660感觉不如625省电 手感倒是不错 作为一个米粉最不忍受的就是距离传感器老是有些问题 <strong>特别是打电话黑屏之后就不亮屏了！</strong> 偶尔下滑状态栏的时候也会有提示按音量+才可以解除防误触的情况 不知道是不是我把防误触打开才造成的，有待验证。 以上便是我一个月来的使用感受</p>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>吐槽</tag>
+        <tag>红米</tag>
       </tags>
   </entry>
   <entry>
@@ -3232,6 +3188,50 @@
         <tag>wordpress</tag>
         <tag>Wordpress</tag>
         <tag>链接</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>黑苹果固态避坑指南</title>
+    <url>/posts/60346.html</url>
+    <content><![CDATA[<p><code>三星</code> <code>PM961</code> / <code>PM981</code> / <code>PM981a</code> / <code>PM991</code> 会导致 macOS 无法安装或正常运行</p>
+<p><code>三星</code> <code>983ZET</code>无法安装 macOS；</p>
+<p>2019 年 5 月以前出厂的 <code>三星</code> <code>970 EVO Plus</code>  可能存在和 <code>PM9x1</code> 系列类似的问题，但可以通过在Windows环境升级官方固件解决 macOS 兼容问题；</p>
+<p><code>镁光</code> <code>2200S </code>无法安装或稳定运行 macOS；</p>
+<p><code>爱国者</code> <code>P2000 256GB </code>无法通过 10.15、11.x、12.x 任何一个版本的正常安装流程，但不排除个例的可能；</p>
+<p>macOS 不支持使用 <code>Intel</code> <code>傲腾</code>（Optane Memory）或<code>镁光</code> <code>3D XPoint</code> 进行加速的笔记本电脑；</p>
+<h3 id="下面的型号是与-macOS-IONVMeFamily-兼容性不佳的型号（可能无故卡住或运行不正常）"><a href="#下面的型号是与-macOS-IONVMeFamily-兼容性不佳的型号（可能无故卡住或运行不正常）" class="headerlink" title="下面的型号是与 macOS IONVMeFamily 兼容性不佳的型号（可能无故卡住或运行不正常）"></a>下面的型号是与 macOS IONVMeFamily 兼容性不佳的型号（可能无故卡住或运行不正常）</h3><p><code>英特尔</code> <code>600P/660P/760P 系列</code></p>
+<p><code>金士顿</code> <code>A2000</code>：配置 <code>S5Z42105 </code>控制器的版本必须搭配<code> NVMeFix.kext 1.0.8</code> 及以上，也可能完全无法安装；</p>
+<p><code>海力士</code> <code>PC601/PC611/PC711/BC501</code>：主要见于联想和戴尔笔记本，部分批次正常部分会卡住；</p>
+<p><code>技嘉</code> <code>GIGABYTE M.2 PCIe SSD</code>（比如 <code>GP-GSM2NE8512GNTD</code>）</p>
+<p><code>威刚</code> <code>剑鱼 ADATA Swordfish 2 TB M.2-2280</code></p>
+<p><code>海力士</code> <code>SK Hynix HFS001TD9TNG-L5B0B</code></p>
+<p><code>海力士</code> <code>SK Hynix P31</code></p>
+<p><code>镁光</code> <code>Micron 2200V MTFDHBA512TCK</code> -<code>移速的256G</code>同样使用的镁光颗粒无法安装；</p>
+<p><code>阿斯加特</code> <code>Asgard AN3+ (STAR1000P)</code></p>
+<p><code>朗科</code> <code>Netac NVME SSD 480</code></p>
+<p><code>西部数据</code> <code>SN550/570/730/750/850 </code>都能正常安装和运行 macOS；</p>
+<p><code>三星</code> <code>970EVO/Pro/Plus</code>（升级固件后）和 <code>980/980 Pro</code> 都能正常安装和运行 macOS，但是此系列存在 <code>TRIM </code>支持问题；</p>
+<p><code>海盗船</code> <code>MP400/MP600 </code>系列均能正常安装运行 macOS；</p>
+<p>绝大部分常见的 SATA 接口固态盘都能正常安装和运行 macOS；</p>
+<h3 id="不完全支持-TRIM（主要影响特定条件下的写入速度，什么是-TRIM？），但安装运行正常的型号："><a href="#不完全支持-TRIM（主要影响特定条件下的写入速度，什么是-TRIM？），但安装运行正常的型号：" class="headerlink" title="不完全支持 TRIM（主要影响特定条件下的写入速度，什么是 TRIM？），但安装运行正常的型号："></a>不完全支持<code> TRIM</code>（主要影响特定条件下的写入速度，什么是 TRIM？），但安装运行正常的型号：</h3><p><code>三星</code> <code>Samsung 950 Pro</code></p>
+<p><code>三星</code> <code>Samsung 960 Evo/Pro</code></p>
+<p><code>三星</code> <code>Samsung 970 Evo/Pro</code></p>
+<p>「重要提示」在 <code>macOS 12.0</code> 及以上版本中，OpenCore 无法再修改 APFS 文件系统的 <code>TRIM </code>超时数值，部分执行 <code>TRIM </code>相对较慢的固态硬盘（主要是三星的控制器）将没有足够的时间执行 <code>TRIM</code> 操作。<br>不正确的设置可能导致进入系统缓慢，因此对 macOS <code>TRIM </code>支持度不佳的硬盘建议将 <code>SetApfsTrimTimeout </code>值改成 0 以关闭 <code>TRIM</code>，或 -1 以关闭该功能。此现象在 <code>12.3</code> 及以上的版本中尤其明显。</p>
+<h3 id="完整支持-macOS-TRIM-的型号："><a href="#完整支持-macOS-TRIM-的型号：" class="headerlink" title="完整支持 macOS TRIM 的型号："></a>完整支持 macOS TRIM 的型号：</h3><p><code>西部数据</code> SN5xx/7xx 系列（未完全测试）</p>
+<p><code>英睿达</code> Crucial P1 1TB NVME（SM2263EN，未完全测试）</p>
+<p><code>金典</code> KingDian S280（SATA）</p>
+<p><code>浦科特</code> PLEXTOR M5Pro（SATA）</p>
+<p><code>三星</code> Samsung 850 PRO（SATA，未完全测试）</p>
+<p><code>三星</code> Samsung 870 EVO（SATA，未完全测试）</p>
+]]></content>
+      <categories>
+        <category>Hackintosh</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+        <tag>硬盘</tag>
+        <tag>固态</tag>
+        <tag>samsung</tag>
       </tags>
   </entry>
 </search>

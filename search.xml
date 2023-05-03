@@ -816,6 +816,101 @@
       </tags>
   </entry>
   <entry>
+    <title>Xcode 编译applealc出现签名错误的解决方法</title>
+    <url>/posts/19500.html</url>
+    <content><![CDATA[<h2 id="报错如下"><a href="#报错如下" class="headerlink" title="报错如下"></a>报错如下</h2><blockquote>
+<p>In subcomponent:<br>/Users/admin/Library/Developer/Xcode/DerivedData/AppleALC-fqueikknxpxowubueomyyxuwlnmg/Build/Products/Debug<br>/AppleALC.kext/Contents/PlugIns/PinConfigs.kext/Contents/Info.plist.md5<br>Command CodeSign failed with a nonzero exit code</p>
+</blockquote>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在<code>Other Code Signing Flags</code>添加参数<code>--deep</code></p>
+]]></content>
+      <categories>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>xcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>macOS Monterey正式版发布</title>
+    <url>/posts/2994.html</url>
+    <content><![CDATA[<p>今天黑苹果也升级到了最新的macOS 12.0.1<br>使用opencore 0.7.5引导<br>缓冲帧补丁几乎清空<br><img src="https://blogcdn.asbid.cn/2021/10/26/1635232026.png" alt="dp.png"><br>关于<code>dw1820a</code>升级后蓝牙不可用<br>解决办法<br>启用<code>bluetoolfixup.kext</code><br><img src="https://blogcdn.asbid.cn/2021/10/26/1635232111.png" alt="C675EF40-8877-4BA9-BAB3-EB4DEBC48DF3.png"><br>接近完美。</p>
+]]></content>
+      <categories>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+        <tag>dw1820a</tag>
+        <tag>苹果</tag>
+        <tag>升级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>macOS一键安装homebrew国内镜像</title>
+    <url>/posts/9223.html</url>
+    <content><![CDATA[<ul>
+<li><input checked="" disabled="" type="checkbox"> 国内镜像的一键安装脚本</li>
+</ul>
+<p>官方给出的一键安装由于墙的原因可能无法安装成功。<br>所以找到了一个国内镜像的一键安装脚本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/bin/zsh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+        <tag>homebrew</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>macOS与Windows双系统时间不同步的解决办法</title>
+    <url>/posts/34554.html</url>
+    <content><![CDATA[<p>在windows下<br>右键点击开始菜单，选择终端（管理员）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
+
+<p>回车搞定！重启试试！</p>
+]]></content>
+      <categories>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+        <tag>时间同步</tag>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>macOS锁屏时钟fliqlo</title>
+    <url>/posts/43383.html</url>
+    <content><![CDATA[<p>一款好看的锁屏时钟<br>同时也有Windows版本可以下载</p>
+<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><img src="https://blogcdn.asbid.cn/2022/08/08/1659921276.png" alt="QQ20220808-091421@2x.png"></p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://pan.asbid.cn/d/123%E7%BD%91%E7%9B%98/%E9%BB%91%E8%8B%B9%E6%9E%9C/fliqlo171.dmg">下载地址1</a></p>
+]]></content>
+      <categories>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>macos</tag>
+        <tag>下载</tag>
+        <tag>fliqlo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>office2016 Mac 版本下载安装及破解激活</title>
+    <url>/posts/58867.html</url>
+    <content><![CDATA[<p>一、安装包下载地址</p>
+<p><a href="http://officecdn.microsoft.com/sg/C1297A47-86C4-4C1F-97FA-950631F94777/OfficeMac/Microsoft_Office_2016_15.29.16120900_Installer.pkg">http://officecdn.microsoft.com/sg/C1297A47-86C4-4C1F-97FA-950631F94777/OfficeMac/Microsoft_Office_2016_15.29.16120900_Installer.pkg</a></p>
+<p>二、激活工具</p>
+<p>[hide]<br>链接: <a href="https://pan.baidu.com/s/1ragcr1M">https://pan.baidu.com/s/1ragcr1M</a></p>
+<p>密码: rcb2<br>[/hide]</p>
+]]></content>
+      <categories>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>office</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS一键安装ShadowsocksR服务(附单/多端口管理)</title>
     <url>/posts/48790.html</url>
     <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; <span class="built_in">chmod</span> +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
@@ -908,10 +1003,10 @@
         <category>Linux</category>
       </categories>
       <tags>
+        <tag>下载</tag>
         <tag>centos</tag>
         <tag>torrent</tag>
         <tag>磁力</tag>
-        <tag>下载</tag>
         <tag>cloud torrent</tag>
         <tag>老司机</tag>
       </tags>
@@ -1331,7 +1426,7 @@
     <title>自带邮局的vps面板vestacp</title>
     <url>/posts/48280.html</url>
     <content><![CDATA[<h1 id="Supported-Operating-Systems"><a href="#Supported-Operating-Systems" class="headerlink" title="Supported Operating Systems:"></a>Supported Operating Systems:</h1><h1 id="RHEL-CentOS-5-6-7"><a href="#RHEL-CentOS-5-6-7" class="headerlink" title="RHEL / CentOS 5,6,7"></a>RHEL / CentOS 5,6,7</h1><h1 id="Debian-6-7-8"><a href="#Debian-6-7-8" class="headerlink" title="Debian 6,7,8"></a>Debian 6,7,8</h1><h1 id="Ubuntu-12-04-16-10"><a href="#Ubuntu-12-04-16-10" class="headerlink" title="Ubuntu 12.04-16.10"></a>Ubuntu 12.04-16.10</h1><h1 id="Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器"><a href="#Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器" class="headerlink" title="Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器"></a>Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器</h1><blockquote>
-<p>ssh <a href="mailto:&#114;&#111;&#x6f;&#x74;&#64;&#121;&#111;&#x75;&#x72;&#x2e;&#x73;&#x65;&#114;&#118;&#101;&#x72;">&#114;&#111;&#x6f;&#x74;&#64;&#121;&#111;&#x75;&#x72;&#x2e;&#x73;&#x65;&#114;&#118;&#101;&#x72;</a></p>
+<p>ssh <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#64;&#x79;&#x6f;&#x75;&#x72;&#46;&#x73;&#101;&#x72;&#118;&#101;&#114;">&#x72;&#x6f;&#x6f;&#116;&#64;&#x79;&#x6f;&#x75;&#x72;&#46;&#x73;&#101;&#x72;&#118;&#101;&#114;</a></p>
 </blockquote>
 <h1 id="Download-installation-script-下载安装脚本"><a href="#Download-installation-script-下载安装脚本" class="headerlink" title="Download installation script 下载安装脚本"></a>Download installation script 下载安装脚本</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O http://vestacp.com/pub/vst-install.sh</span><br></pre></td></tr></table></figure>
 
@@ -1380,101 +1475,6 @@
         <tag>mysql</tag>
         <tag>性能</tag>
         <tag>阿里云</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Xcode 编译applealc出现签名错误的解决方法</title>
-    <url>/posts/19500.html</url>
-    <content><![CDATA[<h2 id="报错如下"><a href="#报错如下" class="headerlink" title="报错如下"></a>报错如下</h2><blockquote>
-<p>In subcomponent:<br>/Users/admin/Library/Developer/Xcode/DerivedData/AppleALC-fqueikknxpxowubueomyyxuwlnmg/Build/Products/Debug<br>/AppleALC.kext/Contents/PlugIns/PinConfigs.kext/Contents/Info.plist.md5<br>Command CodeSign failed with a nonzero exit code</p>
-</blockquote>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在<code>Other Code Signing Flags</code>添加参数<code>--deep</code></p>
-]]></content>
-      <categories>
-        <category>MacOS</category>
-      </categories>
-      <tags>
-        <tag>xcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>macOS Monterey正式版发布</title>
-    <url>/posts/2994.html</url>
-    <content><![CDATA[<p>今天黑苹果也升级到了最新的macOS 12.0.1<br>使用opencore 0.7.5引导<br>缓冲帧补丁几乎清空<br><img src="https://blogcdn.asbid.cn/2021/10/26/1635232026.png" alt="dp.png"><br>关于<code>dw1820a</code>升级后蓝牙不可用<br>解决办法<br>启用<code>bluetoolfixup.kext</code><br><img src="https://blogcdn.asbid.cn/2021/10/26/1635232111.png" alt="C675EF40-8877-4BA9-BAB3-EB4DEBC48DF3.png"><br>接近完美。</p>
-]]></content>
-      <categories>
-        <category>MacOS</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-        <tag>dw1820a</tag>
-        <tag>苹果</tag>
-        <tag>升级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>macOS一键安装homebrew国内镜像</title>
-    <url>/posts/9223.html</url>
-    <content><![CDATA[<ul>
-<li><input checked="" disabled="" type="checkbox"> 国内镜像的一键安装脚本</li>
-</ul>
-<p>官方给出的一键安装由于墙的原因可能无法安装成功。<br>所以找到了一个国内镜像的一键安装脚本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/bin/zsh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>MacOS</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-        <tag>homebrew</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>macOS与Windows双系统时间不同步的解决办法</title>
-    <url>/posts/34554.html</url>
-    <content><![CDATA[<p>在windows下<br>右键点击开始菜单，选择终端（管理员）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
-
-<p>回车搞定！重启试试！</p>
-]]></content>
-      <categories>
-        <category>MacOS</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-        <tag>时间同步</tag>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>macOS锁屏时钟fliqlo</title>
-    <url>/posts/43383.html</url>
-    <content><![CDATA[<p>一款好看的锁屏时钟<br>同时也有Windows版本可以下载</p>
-<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><img src="https://blogcdn.asbid.cn/2022/08/08/1659921276.png" alt="QQ20220808-091421@2x.png"></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://pan.asbid.cn/d/123%E7%BD%91%E7%9B%98/%E9%BB%91%E8%8B%B9%E6%9E%9C/fliqlo171.dmg">下载地址1</a></p>
-]]></content>
-      <categories>
-        <category>MacOS</category>
-      </categories>
-      <tags>
-        <tag>macos</tag>
-        <tag>下载</tag>
-        <tag>fliqlo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>office2016 Mac 版本下载安装及破解激活</title>
-    <url>/posts/58867.html</url>
-    <content><![CDATA[<p>一、安装包下载地址</p>
-<p><a href="http://officecdn.microsoft.com/sg/C1297A47-86C4-4C1F-97FA-950631F94777/OfficeMac/Microsoft_Office_2016_15.29.16120900_Installer.pkg">http://officecdn.microsoft.com/sg/C1297A47-86C4-4C1F-97FA-950631F94777/OfficeMac/Microsoft_Office_2016_15.29.16120900_Installer.pkg</a></p>
-<p>二、激活工具</p>
-<p>[hide]<br>链接: <a href="https://pan.baidu.com/s/1ragcr1M">https://pan.baidu.com/s/1ragcr1M</a></p>
-<p>密码: rcb2<br>[/hide]</p>
-]]></content>
-      <categories>
-        <category>MacOS</category>
-      </categories>
-      <tags>
-        <tag>office</tag>
       </tags>
   </entry>
   <entry>

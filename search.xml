@@ -921,21 +921,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux下本地安装包命令</title>
-    <url>/posts/54714.html</url>
-    <content><![CDATA[<h2 id="centos下安装RPM安装包"><a href="#centos下安装RPM安装包" class="headerlink" title="centos下安装RPM安装包"></a>centos下安装RPM安装包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum localinstall file.rpm</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="ubuntu下安装deb安装包"><a href="#ubuntu下安装deb安装包" class="headerlink" title="ubuntu下安装deb安装包"></a>ubuntu下安装deb安装包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i 安装包名称.deb</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>命令</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CyberPanel- 基于OpenLiteSpeed Web引擎的免费Linux VPS面板</title>
     <url>/posts/56477.html</url>
     <content><![CDATA[<p>最近去CyberPanel官方看到，版本已经到V1.6版本，且基本的功能应该算成熟。不过目前的用户也并不是很多，这个应该与官方的实际推广宣传力度有关系，当然还有很多国内用户的使用习惯，因为毕竟作为面板而言我们选择一个习惯的就可以，也没有必要使用太多的。在这篇文章中，将体验CyberPanel免费面板的安装与基本功能应用。</p>
@@ -952,6 +937,21 @@
         <tag>VPS</tag>
         <tag>CyberPanel</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux下本地安装包命令</title>
+    <url>/posts/54714.html</url>
+    <content><![CDATA[<h2 id="centos下安装RPM安装包"><a href="#centos下安装RPM安装包" class="headerlink" title="centos下安装RPM安装包"></a>centos下安装RPM安装包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum localinstall file.rpm</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="ubuntu下安装deb安装包"><a href="#ubuntu下安装deb安装包" class="headerlink" title="ubuntu下安装deb安装包"></a>ubuntu下安装deb安装包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i 安装包名称.deb</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>命令</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1335,7 +1335,7 @@
     <title>自带邮局的vps面板vestacp</title>
     <url>/posts/48280.html</url>
     <content><![CDATA[<h1 id="Supported-Operating-Systems"><a href="#Supported-Operating-Systems" class="headerlink" title="Supported Operating Systems:"></a>Supported Operating Systems:</h1><h1 id="RHEL-CentOS-5-6-7"><a href="#RHEL-CentOS-5-6-7" class="headerlink" title="RHEL / CentOS 5,6,7"></a>RHEL / CentOS 5,6,7</h1><h1 id="Debian-6-7-8"><a href="#Debian-6-7-8" class="headerlink" title="Debian 6,7,8"></a>Debian 6,7,8</h1><h1 id="Ubuntu-12-04-16-10"><a href="#Ubuntu-12-04-16-10" class="headerlink" title="Ubuntu 12.04-16.10"></a>Ubuntu 12.04-16.10</h1><h1 id="Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器"><a href="#Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器" class="headerlink" title="Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器"></a>Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器</h1><blockquote>
-<p>ssh <a href="mailto:&#114;&#x6f;&#111;&#x74;&#64;&#121;&#x6f;&#117;&#114;&#46;&#115;&#x65;&#x72;&#118;&#x65;&#114;">&#114;&#x6f;&#111;&#x74;&#64;&#121;&#x6f;&#117;&#114;&#46;&#115;&#x65;&#x72;&#118;&#x65;&#114;</a></p>
+<p>ssh <a href="mailto:&#x72;&#x6f;&#111;&#116;&#x40;&#x79;&#x6f;&#117;&#114;&#x2e;&#115;&#101;&#x72;&#118;&#x65;&#x72;">&#x72;&#x6f;&#111;&#116;&#x40;&#x79;&#x6f;&#117;&#114;&#x2e;&#115;&#101;&#x72;&#118;&#x65;&#x72;</a></p>
 </blockquote>
 <h1 id="Download-installation-script-下载安装脚本"><a href="#Download-installation-script-下载安装脚本" class="headerlink" title="Download installation script 下载安装脚本"></a>Download installation script 下载安装脚本</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O http://vestacp.com/pub/vst-install.sh</span><br></pre></td></tr></table></figure>
 

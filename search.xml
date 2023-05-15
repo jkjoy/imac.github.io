@@ -820,6 +820,573 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS一键安装ShadowsocksR服务(附单/多端口管理)</title>
+    <url>/posts/48790.html</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; <span class="built_in">chmod</span> +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
+
+<p>使用wget命令下载文件，-N代表不重新下载文件除非比本地文件更新，–no-check-certificate代表不检查证书。</p>
+<p>下载完成后可以看到以下界面，按提示操作输入端口/密码/加密方式/ 协议/混淆等参数即可完成安装。<br><img src="https://xy07-1251893119.costj.myqcloud.com/2019/04/03/4001117836.png" alt="20190211153929924.png"><br>安装完成后，如需要进入服务界面输入以下命令。</p>
+<pre><code>bash ssr.sh
+</code></pre>
+<p>安装完成后，自动设置为系统服务，所以支持使用服务来启动/停止等操作，同时支持开机启动。</p>
+<blockquote>
+<p>service ssr start    //启动<br>service ssr stop    //停止<br>service ssr restart //重启<br>service ssr status</p>
+</blockquote>
+<p>ShadowsocksR 默认支持UDP转发，服务端无需任何设置。</p>
+<p>本脚本已经集成了 安装/卸载 锐速(ServerSpeeder)，但是是否支持请查看 Linux支持内核列表 。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>文件</tag>
+        <tag>安装</tag>
+        <tag>命令</tag>
+        <tag>wget</tag>
+        <tag>列表</tag>
+        <tag>ssr</tag>
+        <tag>service</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS系统时间和时区查看以及修改的方法</title>
+    <url>/posts/8952.html</url>
+    <content><![CDATA[<p>一、时间修改 远程连接到centos 或者直接登录系统 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date </span><br></pre></td></tr></table></figure>
+<p>查看系统时间 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date -s </span><br></pre></td></tr></table></figure>
+<p>修改时间 看下面的例子</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date -s  03/04/2013</span><br></pre></td></tr></table></figure>
+<p> （将系统日期设定为2013年03月04日）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date -s  110:38</span><br></pre></td></tr></table></figure>
+<p>（将系统时间设定为上午 10:38） </p>
+<p>二、时区修改 </p>
+<p>先查看时区 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date -R  </span><br></pre></td></tr></table></figure>
+
+<p>修改时区： （将Asia/shanghai-上海时区写入当前时区）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp -f /usr/share/zoneinfo/Asia/Shanghai     /etc/localtime </span><br></pre></td></tr></table></figure>
+<p> 提示是否覆盖,输入Y回车, 然后<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date</span><br></pre></td></tr></table></figure><br> 查看时区和时间（CST,中国时区）</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cloud Torrent for centos一键安装 支持 离线下载 BT和磁力链接和边下边播 的老司机坐骑</title>
+    <url>/posts/31988.html</url>
+    <content><![CDATA[<h2 id="声明："><a href="#声明：" class="headerlink" title="声明："></a>声明：</h2><p>本文章仅提供 BT/磁力链接 下载工具的安装方法和说明，任何使用此工具 下载版权侵权文件或导致任何经济损失，皆和本人无任何关系！如果你不同意或有异议，请关闭这个网页！<br><img src="https://xy07-1251893119.costj.myqcloud.com/2017/05/27/823290012.png" alt="10-1.png"></p>
+<h2 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h2><p>CentOS / Debian / Ubuntu 都可以，因为是 Go语言写的</p>
+<h2 id="脚本版本："><a href="#脚本版本：" class="headerlink" title="脚本版本："></a>脚本版本：</h2><p>Ver: 1.0.3</p>
+<h2 id="Cloud-Torrent特点"><a href="#Cloud-Torrent特点" class="headerlink" title="Cloud Torrent特点"></a>Cloud Torrent特点</h2><ul>
+<li>支持 BT下载</li>
+<li>支持 磁力链接下载</li>
+<li>支持 搜索磁力链接</li>
+<li>支持 离线下载</li>
+<li>支持 边下边播( 格式限制：mp4/wbem/ogg，同时需要手动输入链接)</li>
+<li>可视化界面 Web UI</li>
+</ul>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://www.xuanlove.download/sh/cloudt.sh &amp;&amp; <span class="built_in">chmod</span> +x cloudt.sh &amp;&amp; bash cloudt.sh</span><br></pre></td></tr></table></figure>
+
+
+<p>下载运行完毕脚本，就会直接开始安装 Cloud Torrent ，安装过程中如果出现让你选择Y和N的，都选Y。</p>
+<p>安装完成之后，就会提醒你，输入要开放的端口（推荐：默认 8000）</p>
+<p>启动后，访问 <a href="http://vps_ip:8000/">http://VPS_IP:8000</a> 即可看到Web UI界面了。</p>
+<h2 id="脚本使用说明"><a href="#脚本使用说明" class="headerlink" title="脚本使用说明"></a>脚本使用说明</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash cloudt.sh</span><br><span class="line">        #可以直接输入这个命令，会自动判断是否需要 安装/启动/停止 Cloud Torrent</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh install</span><br><span class="line">        #安装 Cloud Torrent</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh start</span><br><span class="line">        #启动 Cloud Torrent</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh stop</span><br><span class="line">        #停止 Cloud Torrent</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh tail</span><br><span class="line">        #查看 Cloud Torrent 日志</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh uninstall</span><br><span class="line">        #卸载 Cloud Torrent</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Cloud-Torrent使用说明"><a href="#Cloud-Torrent使用说明" class="headerlink" title="Cloud Torrent使用说明"></a>Cloud Torrent使用说明</h2><p>Cloud Torrent可以直接在输入中输入 磁力链接 或者 在线的BT种子（不支持本地上传），点击下面的 蓝色的按钮，就会开始解析资源。</p>
+<h3 id="按钮说明"><a href="#按钮说明" class="headerlink" title="按钮说明"></a>按钮说明</h3><p>成功解析后，就会显示如下的界面，开始下载。<br>Files 是查看正在下载的文件列表， Start 是启动下载（默认解析后直接启动下载）， Stop 是停止下载。<br>还有，如果你下载完毕或者点了 Stop 停止下载，那么 Stop 就会变成 Remove 删除任务的按钮了。</p>
+<h3 id="搜索磁力链接"><a href="#搜索磁力链接" class="headerlink" title="搜索磁力链接"></a>搜索磁力链接</h3><p>Cloud Torrent支持搜索磁力链接，在输入栏中直接输入你要搜索的文件名称，同时点击 绿色的按钮 选择一个搜索源，然后点击 蓝色的Search 按钮就可以搜索了。<br>注意：Cloud Torrent是国外人写的，所以这些搜索源均是国外的磁力链接网站，搜索到的资源基本没有中文的，所以非特殊需求的这个功能就没什么卵用了。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>BT和磁力链接的速度是和， 磁力链接/BT 的用户上传共享量 和 中心服务器的宽带质量，以及你下载 磁力链接/BT 的VPS的宽带有关系。<br>这种软件在某些程度上比不上 国内的迅雷，毕竟迅雷 用户了很大共享了很多的上传速度，而且还有缓存的中心服务器，所以才会那么快。<br>如果你是国外的VPS，特别是美国的，一定要注意下载 BT/磁力链接 容易遇到蜜罐，然后被投诉封VPS。建议使用欧洲的罗马尼亚，那里的VPS无视版权，当然拉回本地，速度肯定也不会多快</p>
+<ul>
+<li>无法访问你的 <a href="http://IP:端口">http://IP:端口</a><br>可能是防火墙规则的问题，使用下面这个命令来开放端口</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 端口 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>torrent</tag>
+        <tag>磁力</tag>
+        <tag>下载</tag>
+        <tag>cloud torrent</tag>
+        <tag>老司机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CyberPanel- 基于OpenLiteSpeed Web引擎的免费Linux VPS面板</title>
+    <url>/posts/56477.html</url>
+    <content><![CDATA[<p>最近去CyberPanel官方看到，版本已经到V1.6版本，且基本的功能应该算成熟。不过目前的用户也并不是很多，这个应该与官方的实际推广宣传力度有关系，当然还有很多国内用户的使用习惯，因为毕竟作为面板而言我们选择一个习惯的就可以，也没有必要使用太多的。在这篇文章中，将体验CyberPanel免费面板的安装与基本功能应用。</p>
+<h3 id="1、配置要求"><a href="#1、配置要求" class="headerlink" title="1、配置要求"></a>1、配置要求</h3><p>根据官方的要求，需要服务器系统使用的Centos 7.x、Python 2.7、内存512MB、硬盘10GB以上。</p>
+<h3 id="2、一键安装包"><a href="#2、一键安装包" class="headerlink" title="2、一键安装包"></a>2、一键安装包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install curl curl-devel wget -y</span><br><span class="line">sh &lt;(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh)</span><br></pre></td></tr></table></figure>
+
+<p>可以直接一键安装最新版本。 安装完毕，看到登入地址和用户名和密码。</p>
+<h3 id="3、CyberPanel登入"><a href="#3、CyberPanel登入" class="headerlink" title="3、CyberPanel登入"></a>3、CyberPanel登入</h3><p>登入CyberPanel面板，我们可以选择Chinese简体中文。因为面板自带语言包的，我们登入进入后看到简体中文。看到CyberPanel面板后台，体验还是比较好的。毕竟OpenLiteSpeed团队，华人还是比较多的，所以还是有针对性的希望让中文用户使用。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>CyberPanel</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux下本地安装包命令</title>
+    <url>/posts/54714.html</url>
+    <content><![CDATA[<h2 id="centos下安装RPM安装包"><a href="#centos下安装RPM安装包" class="headerlink" title="centos下安装RPM安装包"></a>centos下安装RPM安装包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum localinstall file.rpm</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="ubuntu下安装deb安装包"><a href="#ubuntu下安装deb安装包" class="headerlink" title="ubuntu下安装deb安装包"></a>ubuntu下安装deb安装包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i 安装包名称.deb</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>命令</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMWare Pro 15.0.0 官方版下载地址及注册码</title>
+    <url>/posts/38542.html</url>
+    <content><![CDATA[<h2 id="软件截图"><a href="#软件截图" class="headerlink" title="软件截图"></a>软件截图</h2><p><img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/2018/10/screenshot_2018-10-02_23-01-48-1024x745.png?x-oss-process=image/quality,q_25/resize,m_fill,w_1024,h_745"></p>
+<h2 id="VMWare-Pro-15-可用注册码："><a href="#VMWare-Pro-15-可用注册码：" class="headerlink" title="VMWare Pro 15 可用注册码："></a>VMWare Pro 15 可用注册码：</h2><p>GA70H-8TYE2-H886P-04YZC-YVA84</p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>Windows: <a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.0.0-10134415.exe">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.0.0-10134415.exe</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VMWare</tag>
+        <tag>资源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vi编辑器的基本使用方法</title>
+    <url>/posts/22356.html</url>
+    <content><![CDATA[<p>vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。<br>由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。<br>Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。 </p>
+<p>1、vi的基本概念 </p>
+<p>基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：</p>
+<ol>
+<li>命令行模式command mode） </li>
+</ol>
+<p>控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。 </p>
+<ol start="2">
+<li>插入模式（Insert mode）</li>
+</ol>
+<p>只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。 </p>
+<ol start="3">
+<li>底行模式（last line mode） </li>
+</ol>
+<p>将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。 不过一般我们在使用时把vi简化成两个模式，就是将底行模式（last line mode）也算入命令行模式command mode）。 </p>
+<p>2、vi的基本操作</p>
+<p> a) 进入vi 在系统提示符号输入vi及文件名称后，就进入vi全屏幕编辑画面： $ vi myfile 不过有一点要特别注意，就是您进入vi之后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。初次使用vi的人都会想先用上下左右键移动光标，结果电脑一直哔哔叫，把自己气个半死，所以进入vi后，先不要乱动，转换到「插入模式（Insert mode）」再说吧！</p>
+<p>  b) 切换至插入模式（Insert mode）编辑文件 在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了。 </p>
+<p>  c) Insert 的切换 您目前处于「插入模式（Insert mode）」，您就只能一直输入文字，如果您发现输错了字！想用光标键往回移动，将该字删除，就要先按一下「ESC」键转到「命令行模式（command mode）」再删除文字。 </p>
+<p>  d) 退出vi及保存文件</p>
+<p>在「命令行模式（command mode）」下，按一下「：」冒号键进入「Last line mode」，例如：</p>
+<p>w filename （输入 「w filename」将文章以指定的文件名filename保存）</p>
+<p>wq (输入「wq」，存盘并退出vi)</p>
+<p>q! (输入q!， 不存盘强制退出vi)</p>
+<p>3、命令行模式（command mode）功能键 </p>
+<p>1）. 插入模式 按「i」切换进入插入模式「insert mode」，按“i”进入插入模式后是从光标当前位置开始输入文件； 按「a」进入插入模式后，是从目前光标所在位置的下一个位置开始输入文字； 按「o」进入插入模式后，是插入新的一行，从行首开始输入文字。 </p>
+<p>2）. 从插入模式切换为命令行模式 按「ESC」键。 </p>
+<p>3）. 移动光标 vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、「k」、「l」，分别控制光标左、下、上、右移一格。 按「ctrl」+「b」：屏幕往“后”移动一页。 按「ctrl」+「f」：屏幕往“前”移动一页。 按「ctrl」+「u」：屏幕往“后”移动半页。 按「ctrl」+「d」：屏幕往“前”移动半页。 按数字「0」：移到文章的开头。 按「G」：移动到文章的最后。 按「$」：移动到光标所在行的“行尾”。 按「^」：移动到光标所在行的“行首” 按「w」：光标跳到下个字的开头 按「e」：光标跳到下个字的字尾 按「b」：光标回到上个字的开头 按「#l」：光标移到该行的第#个位置，如：5l,56l。 </p>
+<p>4）. 删除文字 「x」：每按一次，删除光标所在位置的“后面”一个字符。 「#x」：例如，「6x」表示删除光标所在位置的“后面”6个字符。 「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符。 「#X」：例如，「20X」表示删除光标所在位置的“前面”20个字符。 「dd」：删除光标所在行。 「#dd」：从光标所在行开始删除#行 </p>
+<p>5）. 复制 「yw」：将光标所在之处到字尾的字符复制到缓冲区中。 「#yw」：复制#个字到缓冲区 「yy」：复制光标所在行到缓冲区。 「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。 「p」：将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。 </p>
+<p>6）. 替换 「r」：替换光标所在处的字符。 「R」：替换光标所到之处的字符，直到按下「ESC」键为止。 </p>
+<p>7）. 回复上一次操作 「u」：如果您误执行一个命令，可以马上按下「u」，回到上一个操作。按多次“u”可以执行多次回复。 </p>
+<p>8）. 更改 「cw」：更改光标所在处的字到字尾处 「c#w」：例如，「c3w」表示更改3个字 9）. 跳至指定的行 「ctrl」+「g」列出光标所在行的行号。 「#G」：例如，「15G」，表示移动光标至文章的第15行行首。 </p>
+<p>4、Last line mode下命令简介 在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command mode」下后，再按「：」冒号即可进入「last line mode」。 </p>
+<p>A) 列出行号 「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号。 </p>
+<p>B) 跳到文件中的某一行 「#」：「#」号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行。 </p>
+<p>C) 查找字符 「/关键字」：先按「/」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往后寻找到您要的关键字为止。 「?关键字」：先按「?」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往前寻找到您要的关键字为止。 </p>
+<p>D) 保存文件 「w」：在冒号输入字母「w」就可以将文件保存起来。 </p>
+<p>E) 离开vi 「q」：按「q」就是退出，如果无法离开vi，可以在「q」后跟一个「!」强制离开vi。 「qw」：一般建议离开时，搭配「w」一起使用，这样在退出的时候还可以保存文件。 </p>
+<p>5、vi命令列表 </p>
+<p>1、下表列出命令模式下的一些键的功能： h 左移光标一个字符 l 右移光标一个字符 k 光标上移一行 j 光标下移一行 ^ 光标移动至行首 0 数字“0”，光标移至文章的开头 G 光标移至文章的最后 $ 光标移动至行尾 Ctrl+f 向前翻屏 Ctrl+b 向后翻屏 Ctrl+d 向前翻半屏 Ctrl+u 向后翻半屏 i 在光标位置前插入字符 a 在光标所在位置的后一个字符开始增加 o 插入新的一行，从行首开始输入 ESC 从输入状态退至命令状态 x 删除光标后面的字符 #x 删除光标后的＃个字符 X (大写X)，删除光标前面的字符 #X 删除光标前面的#个字符 dd 删除光标所在的行 #dd 删除从光标所在行数的#行 yw 复制光标所在位置的一个字 #yw 复制光标所在位置的#个字 yy 复制光标所在位置的一行 #yy 复制从光标所在行数的#行 p 粘贴 u 取消操作 cw 更改光标所在位置的一个字 #cw 更改光标所在位置的#个字 </p>
+<p>2、下表列出行命令模式下的一些指令 w filename 储存正在编辑的文件为filename wq filename 储存正在编辑的文件为filename，并退出vi q! 放弃所有修改，退出vi set nu 显示行号 /或? 查找，在/后输入要查找的内容 n 与/或?一起使用，如果查找的内容不是想要找的关键字，按n或向后（与/联用）或向前（与?联用）继续查找，直到找到为止。 </p>
+<p>对于第一次用vi，有几点注意要提醒一下： </p>
+<p>1、用vi打开文件后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。</p>
+<p>切换方法：在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了。</p>
+<p>2、编辑好后，需从插入模式切换为命令行模式才能对文件进行保存，切换方法：按「ESC」键。</p>
+<p>3、保存并退出文件：在命令模式下输入:wq即可！（别忘了wq前面的:）</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>Linux</tag>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>centos7 ssh连接慢的解决方法</title>
+    <url>/posts/58592.html</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<p>按i编辑插入<br>找到<br><code>UseDNS</code>去掉前面的#号 改为 no</p>
+<p><code>GSSAPIAuthentication</code> 改为 no</p>
+<p>然后<code>：wq </code>保存退出</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<p>重启</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>centos7安装后没有网络</title>
+    <url>/posts/6609.html</url>
+    <content><![CDATA[<p>以<code>root</code>账号登陆<br>用<code>ip addr</code>命令查看网络参数。<br>打开<code>eth0</code>网卡的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure>
+
+<p>把<code>NOBOOT</code>参数<code>no</code>，修改为<code>yes</code><br>重启网络或者重启服务器都可</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>go get出现错误的解决办法</title>
+    <url>/posts/60845.html</url>
+    <content><![CDATA[<p>错误提示<br>unrecognized import path “golang.org/x/sys/windows”: https fetch: Get “<a href="https://golang.org/x/sys/windows?go-get=1&quot;">https://golang.org/x/sys/windows?go-get=1&quot;</a>: dial tcp 216.239.37.1:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.<br>解决办法</p>
+<p>mkdir -p $GOPATH/src/golang.org/x<br>cd $GOPATH/src/golang.org/x<br>git clone <a href="https://github.com/golang/sync.git">https://github.com/golang/sync.git</a><br>git clone <a href="https://github.com/golang/crypto.git">https://github.com/golang/crypto.git</a><br>git clone <a href="https://github.com/golang/sys.git">https://github.com/golang/sys.git</a><br>————————————————</p>
+<p>原文链接：<a href="https://blog.csdn.net/cyLee_/java/article/details/93159032">https://blog.csdn.net/cyLee_/java/article/details/93159032</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>错误</tag>
+        <tag>clone</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux远程拷贝命令scp及出现not a regular file 解决</title>
+    <url>/posts/16090.html</url>
+    <content><![CDATA[<p>最近开始折腾ubuntu使用命令行上传下载还是挺方便的。 想</p>
+<p>备份数据到本地 那就使用scp命令 scp提供了几个选项 在scp后加就行了</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; -p 拷贝文件的时候保留源文件建立的时间。 </span><br><span class="line">&gt; -q 执行文件拷贝时，不显示任何提示消息。 </span><br><span class="line">&gt; -r 拷贝整个目录   </span><br><span class="line">&gt; -v 拷贝文件时，显示提示信息。 </span><br></pre></td></tr></table></figure>
+
+<p>将远程主机192.168.1.23的/home/adm/目录下所有文件下载至本地/home/sun，则命令为：</p>
+<p><code> scp -r root@192.168.1.23:/home/adm/ /home/sun/</code></p>
+<p>回车后输入密码就可以了<br> ps linux 下scp传文件时错误<br> scp: /usr/tools: not a regular file 不能成功传送</p>
+<p>1：有可能没权限 chmod 777 </p>
+<p>2: 在使用scp时加上-r 参数</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>Linux</tag>
+        <tag>scp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pip安装nonebot时报错</title>
+    <url>/posts/46587.html</url>
+    <content><![CDATA[<h2 id="报错如下"><a href="#报错如下" class="headerlink" title="报错如下"></a>报错如下</h2><p> note: This error originates from a subprocess, and is likely not a problem with pip.<br>  ERROR: Failed building wheel for multidict<br>Failed to build yarl multidict<br>ERROR: Could not build wheels for yarl, multidict, which is required to install pyproject.toml-based projects</p>
+<h2 id="问题所在"><a href="#问题所在" class="headerlink" title="问题所在"></a>问题所在</h2><p>缺失对应的whl文件。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>安装对应的whl文件<br>在<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#_pandas">https://www.lfd.uci.edu/~gohlke/pythonlibs/#_pandas</a><br>中搜索安装<br>安装命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install &quot;whl文件所在&quot;</span><br></pre></td></tr></table></figure>
+<p>即可</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu  无线/Wifi 上网速度慢的解决方法</title>
+    <url>/posts/8797.html</url>
+    <content><![CDATA[<p>装了Ubuntu 后连接无线上网，发现出奇的慢。网上查找亲测有效的方法为： </p>
+<p>1、在终端运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/modprobe.d/iwlwifi.conf </span><br></pre></td></tr></table></figure>
+
+<p>2、在打开的这个配置文件中空白处添加：</p>
+<p><code>options iwlwifi 11n\_disable=1 </code></p>
+<p>3、保存文件并重启。（本人已成功） 对比win7下速度差不多了</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu如何更改显示器分辨率并永久保存所设置的分辨率</title>
+    <url>/posts/40959.html</url>
+    <content><![CDATA[<p>终端执行命令行如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cvt 1920 1080</span><br><span class="line">xrandr –newmode 1920x1080_60 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync</span><br><span class="line">xrandr –addmode VGA-0 1920x1080_60</span><br><span class="line">xrandr –output VGA-0 –mode 1920x1080_60</span><br></pre></td></tr></table></figure>
+<p>然后执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo gedit .profile</span><br></pre></td></tr></table></figure>
+<p>把以上的命令行复制粘贴到最后即可<br>保存 重启系统，使用<code>xrandr</code>命令查看<br><img src="https://xy07-1251893119.costj.myqcloud.com/2019/04/10/465359891.png" alt="2019-04-10 18-03-21 的屏幕截图.png"></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>命令</tag>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用putty远程管理vps初级</title>
+    <url>/posts/586.html</url>
+    <content><![CDATA[<h2 id="putty介绍及下载"><a href="#putty介绍及下载" class="headerlink" title="putty介绍及下载"></a>putty介绍及下载</h2><p>PuTTY是一个Telnet、SSH、rlogin、纯TCP以及串行接口连接软件，使用它我们可以远程登录vps，并管理vps。 putty下载地址：<a href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe">http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe</a></p>
+<h2 id="使用putty管理vps"><a href="#使用putty管理vps" class="headerlink" title="使用putty管理vps"></a>使用putty管理vps</h2><p>为了方便演示，这里假设ip地址，SSH端口，及系统密码为：</p>
+<p> <code>ip地址:    192.168.0.1 ssh端口：  22 系统密码：  password</code></p>
+<h3 id="1、登入putty"><a href="#1、登入putty" class="headerlink" title="1、登入putty"></a>1、登入putty</h3><p>在putty中填入vps的ip地址及ssh端口号，如下图所示<br><a href="https://blog.jkjoy.cn/wp-content/uploads/2016/10/putty1.jpg"><img src="https://blog.jkjoy.cn/wp-content/uploads/2016/10/putty1.jpg" alt="putty1"></a> 点击open，即可连接vps服务器。</p>
+<h3 id="2、输入用户名及密码"><a href="#2、输入用户名及密码" class="headerlink" title="2、输入用户名及密码"></a>2、输入用户名及密码</h3><p>登陆进去之后会要求输入用户名及密码，其中用户名为<code>root</code>，密码为之前得到的系统密码（注意密码不会显示出来）。</p>
+<h3 id="3、修改为常用密码"><a href="#3、修改为常用密码" class="headerlink" title="3、修改为常用密码"></a>3、修改为常用密码</h3><p>然后修改系统密码为自己常用的密码，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
+<p>然后会要求你连续两次输入设定的密码，密码不会显示出来，输入完毕回车即可。 下一次就可以采用该密码登陆vps了。</p>
+<h3 id="4、putty中的操作"><a href="#4、putty中的操作" class="headerlink" title="4、putty中的操作"></a>4、putty中的操作</h3><p><code>复制</code>：选中然后“ctrl+c”即可 </p>
+<p><code>粘贴</code>：复制好之后鼠标右键点击下即可</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用yum提示Error: rpmdb open failed的解决方案</title>
+    <url>/posts/64318.html</url>
+    <content><![CDATA[<p>使用yum或者rpm安装包时出现问题，安装时报出大约如下错误</p>
+<blockquote>
+<p>rpmdb: Thread/process35884/139793484506880failed: Thread died inBerkeley DB library error: db3 error(-30974) from dbenv-&gt;failchk: DB_RUNRECOVERY: Fatal error, run database recovery error: cannot openPackages index using db3 -  (-30974) error: cannot openPackages database in/var/lib/rpm CRITICAL:yum.main: Error: rpmdb openfailed</p>
+</blockquote>
+<p>这多半是因为rpm数据库出现损坏所致，此错误可能导致多数(甚至是所有的)rpm软件的升级、安装甚至是删除都会出现问题。 解决办法如下： 修复此错误，请以root身份在终端输入以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /var/lib/rpm      # rpmdb所在目录    </span><br><span class="line">ls | grep &#x27;db.&#x27;   # 列出相关rpmdb文件   </span><br><span class="line">rm -f \_\_db.\*     # 清除原rpmdb文件    </span><br><span class="line">rpm --rebuilddb     # 重建rpm数据库    </span><br><span class="line">yum clean all     # 清除所有yum的缓存</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>半年没有更新博客了</title>
+    <url>/posts/55578.html</url>
+    <content><![CDATA[<p>不是遗忘了，而是大多数时间不知道写些什么。 </p>
+<p>人的想法总是很多，可真正做到的没有多少。</p>
+<p>其实有时候的灵机一动可能会让自己都叫绝的主意在自己的脑海里也只是转瞬即逝，总是为这种莫名的灵感感到可惜。<br>因为不善于捕捉这些，所以日子总是过的稀里糊涂而没有条理。</p>
+<p>说的好听叫随性。<br>这种没有约束的日子没有目标没有目的，迷茫的心里总是空落落的。 </p>
+<p>写博客也是需要有点文采的，可惜，我没有。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在AWS EC2上使用root用户登录</title>
+    <url>/posts/22653.html</url>
+    <content><![CDATA[<p>aws ec2默认是使用<code>ec2-user</code>账号登陆的，对很多文件夹是没有权限的</p>
+<p>如何使用root账号执行命令就是一个问题了。</p>
+<p>解决办法如下： </p>
+<p>1.根据官网提供的方法登录连接到EC2服务器（官网推荐windows用户使用PUTTY连接）<br>主机：是服务器的<code>Public DNS </code><br>端口：22 </p>
+<p>2.创建root的密码，输入如下命令： </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo passwd root </span><br></pre></td></tr></table></figure>
+<p>3.然后会提示你输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">new password</span><br></pre></td></tr></table></figure>
+<p>输入一个你要设置的root的密码，需要你再输入一遍进行验证。<br>4.接下来，切换到root身份，输入如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su root </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>5.使用root身份编辑亚马逊云主机的ssh登录方式，<br>找到<code> PasswordAuthentication no</code>，把<code>no</code>改成<code>yes</code>。<br>输入： </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/ssh/sshd\_config </span><br></pre></td></tr></table></figure>
+<p>6.接下来，要重新启动下sshd，如下命令： </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo /sbin/service sshd restart </span><br></pre></td></tr></table></figure>
+<p>7.然后再切换到root身份 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su root </span><br></pre></td></tr></table></figure>
+<p>8.再为原来的”ec2-user”添加登录密码。<br>如下命令： </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">passwd ec2-user </span><br></pre></td></tr></table></figure>
+<p>按提示，两次输入密码。<br>9.修改sshd配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd\_config </span><br></pre></td></tr></table></figure>
+
+<p><code>PermitRootLogin</code>这行改为<code>PermitRootLogin yes</code><br><code>PasswordAuthentication no</code>改为<code>PasswordAuthentication yes</code><br><code>UsePAM yes</code>改为 <code>UsePAM no </code><br>10.重启AWS VPS，就可以使用root正常登陆了</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>AWS</tag>
+        <tag>EC2</tag>
+        <tag>ROOT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宝塔BT面板开启SSL证书后，后台打不开怎么解决</title>
+    <url>/posts/7423.html</url>
+    <content><![CDATA[<h2 id="宝塔BT面板面板SSL的作用："><a href="#宝塔BT面板面板SSL的作用：" class="headerlink" title="宝塔BT面板面板SSL的作用："></a>宝塔BT面板面板SSL的作用：</h2><p>防止面板账号密码被嗅探，属于需要很高级别安全等级或经常在不安全的网络环境下使用才需要开启此功能。 <img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/2018/09/QQ%E6%88%AA%E5%9B%BE20180913123923.png"></p>
+<h2 id="开启后常见的问题："><a href="#开启后常见的问题：" class="headerlink" title="开启后常见的问题："></a>开启后常见的问题：</h2><h3 id="1-浏览器显示不安全"><a href="#1-浏览器显示不安全" class="headerlink" title="1.浏览器显示不安全"></a>1.浏览器显示不安全</h3><p>正常，此为自签证书，不被信任，直接不理会就可以了</p>
+<h3 id="2-开启后，因不被信任没办法打开，如何设置放行"><a href="#2-开启后，因不被信任没办法打开，如何设置放行" class="headerlink" title="2.开启后，因不被信任没办法打开，如何设置放行"></a>2.开启后，因不被信任没办法打开，如何设置放行</h3><p>我们在回帖处截图了IE/Firefox/Chrome的放行方法，其他浏览器也类似，自己多按几次试试。</p>
+<h3 id="3-开启面板后无法访问"><a href="#3-开启面板后无法访问" class="headerlink" title="3.开启面板后无法访问"></a>3.开启面板后无法访问</h3><p>可以通过在SSH上手动输入以下命令关闭SSL</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -f /www/server/panel/data/ssl.pl &amp;&amp; /etc/init.d/bt restart</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>bt</tag>
+        <tag>SSL</tag>
+        <tag>宝塔</tag>
+        <tag>面板</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宝塔7.7专业版开心版</title>
+    <url>/posts/61565.html</url>
+    <content><![CDATA[<p>ssh运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://v7.hostcli.com/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>宝塔</tag>
+        <tag>开心版</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搬瓦工VPS桌面监控工具BandwagongVPS_controller</title>
+    <url>/posts/42100.html</url>
+    <content><![CDATA[<h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/org/2018/07/2018070802142057.png"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p><img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/org/2018/07/2018070802141179.png"> 在搬瓦工VPS 管理后台获得 API 填写即可</p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://down.asbid.cn/Windows/BandwagongVPS_controller.exe" title="本地下载">本地下载</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>搬瓦工</tag>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搬瓦工bandwagonhost vps新手使用教程</title>
+    <url>/posts/7743.html</url>
+    <content><![CDATA[<h2 id="搬瓦工官网地址无法登陆"><a href="#搬瓦工官网地址无法登陆" class="headerlink" title="搬瓦工官网地址无法登陆"></a>搬瓦工官网地址无法登陆</h2><p>目前搬瓦工官网地址无法直接访问，官方给出了镜像地址，请通过镜像地址管理vps。 </p>
+<p>官方镜像地址：<a href="http://bwh88.net/aff.php?aff=65816">http://bwh88.net</a></p>
+<h2 id="登入kiwiVM控制面板"><a href="#登入kiwiVM控制面板" class="headerlink" title="登入kiwiVM控制面板"></a>登入kiwiVM控制面板</h2><p>买好搬瓦工banwagonhost vps之后，一般会在开通邮件里给出登陆的地址及账号密码，登陆之后会看到如下界面 </p>
+<p>点击Services–My Services选项卡，来到如下页面 </p>
+<p>点击kiwiVM control panel，进入后台管理界面 </p>
+<h2 id="重装系统"><a href="#重装系统" class="headerlink" title="重装系统"></a>重装系统</h2><p>首先在Main Controls 找到 Actions:，并点击stop </p>
+<p>然后点击 Install new OS，重装系统，<br>这里以debian-6.0-x86为例，选中，点击reload，<br>开始重装，很快就会重装好。 </p>
+<h2 id="获取vps远程登录信息"><a href="#获取vps远程登录信息" class="headerlink" title="获取vps远程登录信息"></a>获取vps远程登录信息</h2><p>这里需要记录vps的ip地址，SSH端口，及系统密码方便我们使用putty远程管理vps。<br> 如果不会使用putty，可以参看这篇文章<br> <a href="https://blog.sunpeiwen.com/linux/shi-yong-putty-yuan-cheng-guan-li-vps-chu-ji/">使用putty远程管理vps</a><br> ip地址及SSH端口：在Main Control里可以找到。 </p>
+<p> 系统密码： 点击Root Password Modification，系统会生成一串密码，记录下该密码</p>
+<h2 id="更换ip"><a href="#更换ip" class="headerlink" title="更换ip"></a>更换ip</h2><p>有时会遇到ip被屏蔽的状况，这是可以考虑换一个ip，换ip的话有两种方法：<br>1）向客服提交ticket，让他给你换；<br>2）在后台切换。我给大家介绍下怎么自行切换ip。<br>进入到Migrate To another DC，出现如下界面</p>
+<p> 值得注意的是它一般有多个机房位置可供切换：亚利桑那（位于西海岸）、洛杉矶（位于西海岸）、弗罗里达、荷兰等。<br> 为了达到切换ip的目的，我们可以先切换机房至其他机房，然后再切换回来，这时一般ip就会更换了。<br> 切换机房时间很快，而且不会影响到vps里的数据，大可以放心。</p>
+<p>  本人使用的就是搬瓦工的VPS<br>  bbs.xiaoxiao.su</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>搬瓦工</tag>
+        <tag>教程</tag>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>笔记本电脑WiFi开关打不开怎么办</title>
+    <url>/posts/42952.html</url>
+    <content><![CDATA[<p>前天电脑开机WIFI打不开。WIFI开关显示关闭状态，且一直打不开开关。在网上搜索到很多解决办法不外乎以下几种。 1管理-设备-网络适配器  可以看到无线网卡，说明网卡是可以识别的，且驱动完好，排除了网卡硬件的问题。 2使用热键进行开启FN+F2开启，没反应。 3ICS服务确定已经打开。在开始菜单下面的搜索框中输入服务——找到服务后单击打开即可。找到Internet Connection Sharing (ICS)服务，单击启动，然后右击选择属性后——将其改为自动启动。还是没用。 4进入BIOS，恢复默认。或者</p>
+<blockquote>
+<p>一般情况下，按“F2”键进入BIOS中，在Advanced项或Configuration项下有无线网卡的开启关闭选项，BIOS下无线网卡选项具体有4种描述方式：Wireless；Wireless LAN；Wireless LAN Support；WLAN Device。如下图所示设置成“Enabled”（启用）的状态.</p>
+</blockquote>
+<p>完事儿重启。WIFI正常使用。 奇怪的是我并没有修改BIOS设置。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>笔记本</tag>
+        <tag>BIOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自带邮局的vps面板vestacp</title>
+    <url>/posts/48280.html</url>
+    <content><![CDATA[<h1 id="Supported-Operating-Systems"><a href="#Supported-Operating-Systems" class="headerlink" title="Supported Operating Systems:"></a>Supported Operating Systems:</h1><h1 id="RHEL-CentOS-5-6-7"><a href="#RHEL-CentOS-5-6-7" class="headerlink" title="RHEL / CentOS 5,6,7"></a>RHEL / CentOS 5,6,7</h1><h1 id="Debian-6-7-8"><a href="#Debian-6-7-8" class="headerlink" title="Debian 6,7,8"></a>Debian 6,7,8</h1><h1 id="Ubuntu-12-04-16-10"><a href="#Ubuntu-12-04-16-10" class="headerlink" title="Ubuntu 12.04-16.10"></a>Ubuntu 12.04-16.10</h1><h1 id="Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器"><a href="#Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器" class="headerlink" title="Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器"></a>Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器</h1><blockquote>
+<p>ssh <a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#64;&#121;&#111;&#x75;&#114;&#46;&#x73;&#101;&#114;&#x76;&#x65;&#114;">&#x72;&#x6f;&#x6f;&#x74;&#64;&#121;&#111;&#x75;&#114;&#46;&#x73;&#101;&#114;&#x76;&#x65;&#114;</a></p>
+</blockquote>
+<h1 id="Download-installation-script-下载安装脚本"><a href="#Download-installation-script-下载安装脚本" class="headerlink" title="Download installation script 下载安装脚本"></a>Download installation script 下载安装脚本</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O http://vestacp.com/pub/vst-install.sh</span><br></pre></td></tr></table></figure>
+
+<h1 id="Run-it-运行之"><a href="#Run-it-运行之" class="headerlink" title="Run it 运行之"></a>Run it 运行之</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash vst-install.sh</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<h1 id="Run-it-按照需求nginx-phpfpm-csftpd-exim-iptables-mysql环境"><a href="#Run-it-按照需求nginx-phpfpm-csftpd-exim-iptables-mysql环境" class="headerlink" title="Run it 按照需求nginx+phpfpm+csftpd+exim+iptables+mysql环境"></a>Run it 按照需求nginx+phpfpm+csftpd+exim+iptables+mysql环境</h1> <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash vst-install.sh --nginx <span class="built_in">yes</span> --phpfpm <span class="built_in">yes</span> --apache no --vsftpd <span class="built_in">yes</span> --proftpd no --exim <span class="built_in">yes</span> --dovecot no --spamassassin no --clamav no --named no --iptables <span class="built_in">yes</span> --fail2ban no --mysql <span class="built_in">yes</span> --postgresql no --remi <span class="built_in">yes</span> --quota no</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>vestacp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决apt-get安装中的E: Sub-process /usr/bin/dpkg returned an error code (1)问题</title>
+    <url>/posts/2560.html</url>
+    <content><![CDATA[<p>在用apt-get安装软件包的时候遇到<code>E: Sub-process /usr/bin/dpkg returned an error code (1)</code>问题，解决方法如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/lib/dpkg/sudo <span class="built_in">mv</span> info/ info_bak          <span class="comment"># 现将info文件夹更名</span></span><br><span class="line">sudo <span class="built_in">mkdir</span> info                 <span class="comment"># 再新建一个新的info文件夹</span></span><br><span class="line">sudo apt-get update             <span class="comment"># 更新</span></span><br><span class="line">sudo apt-get -f install         <span class="comment"># 修复</span></span><br><span class="line">sudo <span class="built_in">mv</span> info/* info_bak/        <span class="comment"># 执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info_bak文件夹下</span></span><br><span class="line">sudo <span class="built_in">rm</span> -rf info                <span class="comment"># 把自己新建的info文件夹删掉</span></span><br><span class="line">sudo <span class="built_in">mv</span> info_bak info           <span class="comment"># 把以前的info文件夹重新改回名</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>Linux</tag>
+        <tag>报错</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿里云ECS使用宝塔面板MYSQL自动停止运行</title>
+    <url>/posts/41774.html</url>
+    <content><![CDATA[<h2 id="近几日出现的问题"><a href="#近几日出现的问题" class="headerlink" title="近几日出现的问题"></a>近几日出现的问题</h2><blockquote>
+<p>Mysql自动停止 内存占满 负载超负荷</p>
+</blockquote>
+<p>这些问题在腾讯云的主机上从来没出现过</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/2018/07/QQ%E6%88%AA%E5%9B%BE20180708110618.png"> </p>
+<p>进入宝塔面板的软件管理-MYSQL设置-性能调整 如上所示 内存终于维持在1.7G左右的状态下了。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>宝塔</tag>
+        <tag>mysql</tag>
+        <tag>性能</tag>
+        <tag>阿里云</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Xcode 编译applealc出现签名错误的解决方法</title>
     <url>/posts/19500.html</url>
     <content><![CDATA[<h2 id="报错如下"><a href="#报错如下" class="headerlink" title="报错如下"></a>报错如下</h2><blockquote>
@@ -2504,573 +3071,6 @@
         <tag>九把刀</tag>
         <tag>杀手</tag>
         <tag>无与伦比的自由</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS一键安装ShadowsocksR服务(附单/多端口管理)</title>
-    <url>/posts/48790.html</url>
-    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; <span class="built_in">chmod</span> +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
-
-<p>使用wget命令下载文件，-N代表不重新下载文件除非比本地文件更新，–no-check-certificate代表不检查证书。</p>
-<p>下载完成后可以看到以下界面，按提示操作输入端口/密码/加密方式/ 协议/混淆等参数即可完成安装。<br><img src="https://xy07-1251893119.costj.myqcloud.com/2019/04/03/4001117836.png" alt="20190211153929924.png"><br>安装完成后，如需要进入服务界面输入以下命令。</p>
-<pre><code>bash ssr.sh
-</code></pre>
-<p>安装完成后，自动设置为系统服务，所以支持使用服务来启动/停止等操作，同时支持开机启动。</p>
-<blockquote>
-<p>service ssr start    //启动<br>service ssr stop    //停止<br>service ssr restart //重启<br>service ssr status</p>
-</blockquote>
-<p>ShadowsocksR 默认支持UDP转发，服务端无需任何设置。</p>
-<p>本脚本已经集成了 安装/卸载 锐速(ServerSpeeder)，但是是否支持请查看 Linux支持内核列表 。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>文件</tag>
-        <tag>安装</tag>
-        <tag>命令</tag>
-        <tag>wget</tag>
-        <tag>列表</tag>
-        <tag>ssr</tag>
-        <tag>service</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS系统时间和时区查看以及修改的方法</title>
-    <url>/posts/8952.html</url>
-    <content><![CDATA[<p>一、时间修改 远程连接到centos 或者直接登录系统 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date </span><br></pre></td></tr></table></figure>
-<p>查看系统时间 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date -s </span><br></pre></td></tr></table></figure>
-<p>修改时间 看下面的例子</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date -s  03/04/2013</span><br></pre></td></tr></table></figure>
-<p> （将系统日期设定为2013年03月04日）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date -s  110:38</span><br></pre></td></tr></table></figure>
-<p>（将系统时间设定为上午 10:38） </p>
-<p>二、时区修改 </p>
-<p>先查看时区 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date -R  </span><br></pre></td></tr></table></figure>
-
-<p>修改时区： （将Asia/shanghai-上海时区写入当前时区）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp -f /usr/share/zoneinfo/Asia/Shanghai     /etc/localtime </span><br></pre></td></tr></table></figure>
-<p> 提示是否覆盖,输入Y回车, 然后<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date</span><br></pre></td></tr></table></figure><br> 查看时区和时间（CST,中国时区）</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>centos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cloud Torrent for centos一键安装 支持 离线下载 BT和磁力链接和边下边播 的老司机坐骑</title>
-    <url>/posts/31988.html</url>
-    <content><![CDATA[<h2 id="声明："><a href="#声明：" class="headerlink" title="声明："></a>声明：</h2><p>本文章仅提供 BT/磁力链接 下载工具的安装方法和说明，任何使用此工具 下载版权侵权文件或导致任何经济损失，皆和本人无任何关系！如果你不同意或有异议，请关闭这个网页！<br><img src="https://xy07-1251893119.costj.myqcloud.com/2017/05/27/823290012.png" alt="10-1.png"></p>
-<h2 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h2><p>CentOS / Debian / Ubuntu 都可以，因为是 Go语言写的</p>
-<h2 id="脚本版本："><a href="#脚本版本：" class="headerlink" title="脚本版本："></a>脚本版本：</h2><p>Ver: 1.0.3</p>
-<h2 id="Cloud-Torrent特点"><a href="#Cloud-Torrent特点" class="headerlink" title="Cloud Torrent特点"></a>Cloud Torrent特点</h2><ul>
-<li>支持 BT下载</li>
-<li>支持 磁力链接下载</li>
-<li>支持 搜索磁力链接</li>
-<li>支持 离线下载</li>
-<li>支持 边下边播( 格式限制：mp4/wbem/ogg，同时需要手动输入链接)</li>
-<li>可视化界面 Web UI</li>
-</ul>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://www.xuanlove.download/sh/cloudt.sh &amp;&amp; <span class="built_in">chmod</span> +x cloudt.sh &amp;&amp; bash cloudt.sh</span><br></pre></td></tr></table></figure>
-
-
-<p>下载运行完毕脚本，就会直接开始安装 Cloud Torrent ，安装过程中如果出现让你选择Y和N的，都选Y。</p>
-<p>安装完成之后，就会提醒你，输入要开放的端口（推荐：默认 8000）</p>
-<p>启动后，访问 <a href="http://vps_ip:8000/">http://VPS_IP:8000</a> 即可看到Web UI界面了。</p>
-<h2 id="脚本使用说明"><a href="#脚本使用说明" class="headerlink" title="脚本使用说明"></a>脚本使用说明</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash cloudt.sh</span><br><span class="line">        #可以直接输入这个命令，会自动判断是否需要 安装/启动/停止 Cloud Torrent</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh install</span><br><span class="line">        #安装 Cloud Torrent</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh start</span><br><span class="line">        #启动 Cloud Torrent</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh stop</span><br><span class="line">        #停止 Cloud Torrent</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh tail</span><br><span class="line">        #查看 Cloud Torrent 日志</span><br><span class="line">         </span><br><span class="line">bash cloudt.sh uninstall</span><br><span class="line">        #卸载 Cloud Torrent</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="Cloud-Torrent使用说明"><a href="#Cloud-Torrent使用说明" class="headerlink" title="Cloud Torrent使用说明"></a>Cloud Torrent使用说明</h2><p>Cloud Torrent可以直接在输入中输入 磁力链接 或者 在线的BT种子（不支持本地上传），点击下面的 蓝色的按钮，就会开始解析资源。</p>
-<h3 id="按钮说明"><a href="#按钮说明" class="headerlink" title="按钮说明"></a>按钮说明</h3><p>成功解析后，就会显示如下的界面，开始下载。<br>Files 是查看正在下载的文件列表， Start 是启动下载（默认解析后直接启动下载）， Stop 是停止下载。<br>还有，如果你下载完毕或者点了 Stop 停止下载，那么 Stop 就会变成 Remove 删除任务的按钮了。</p>
-<h3 id="搜索磁力链接"><a href="#搜索磁力链接" class="headerlink" title="搜索磁力链接"></a>搜索磁力链接</h3><p>Cloud Torrent支持搜索磁力链接，在输入栏中直接输入你要搜索的文件名称，同时点击 绿色的按钮 选择一个搜索源，然后点击 蓝色的Search 按钮就可以搜索了。<br>注意：Cloud Torrent是国外人写的，所以这些搜索源均是国外的磁力链接网站，搜索到的资源基本没有中文的，所以非特殊需求的这个功能就没什么卵用了。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>BT和磁力链接的速度是和， 磁力链接/BT 的用户上传共享量 和 中心服务器的宽带质量，以及你下载 磁力链接/BT 的VPS的宽带有关系。<br>这种软件在某些程度上比不上 国内的迅雷，毕竟迅雷 用户了很大共享了很多的上传速度，而且还有缓存的中心服务器，所以才会那么快。<br>如果你是国外的VPS，特别是美国的，一定要注意下载 BT/磁力链接 容易遇到蜜罐，然后被投诉封VPS。建议使用欧洲的罗马尼亚，那里的VPS无视版权，当然拉回本地，速度肯定也不会多快</p>
-<ul>
-<li>无法访问你的 <a href="http://IP:端口">http://IP:端口</a><br>可能是防火墙规则的问题，使用下面这个命令来开放端口</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 端口 -j ACCEPT</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>下载</tag>
-        <tag>centos</tag>
-        <tag>torrent</tag>
-        <tag>磁力</tag>
-        <tag>cloud torrent</tag>
-        <tag>老司机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CyberPanel- 基于OpenLiteSpeed Web引擎的免费Linux VPS面板</title>
-    <url>/posts/56477.html</url>
-    <content><![CDATA[<p>最近去CyberPanel官方看到，版本已经到V1.6版本，且基本的功能应该算成熟。不过目前的用户也并不是很多，这个应该与官方的实际推广宣传力度有关系，当然还有很多国内用户的使用习惯，因为毕竟作为面板而言我们选择一个习惯的就可以，也没有必要使用太多的。在这篇文章中，将体验CyberPanel免费面板的安装与基本功能应用。</p>
-<h3 id="1、配置要求"><a href="#1、配置要求" class="headerlink" title="1、配置要求"></a>1、配置要求</h3><p>根据官方的要求，需要服务器系统使用的Centos 7.x、Python 2.7、内存512MB、硬盘10GB以上。</p>
-<h3 id="2、一键安装包"><a href="#2、一键安装包" class="headerlink" title="2、一键安装包"></a>2、一键安装包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install curl curl-devel wget -y</span><br><span class="line">sh &lt;(curl https://cyberpanel.net/install.sh || wget -O - https://cyberpanel.net/install.sh)</span><br></pre></td></tr></table></figure>
-
-<p>可以直接一键安装最新版本。 安装完毕，看到登入地址和用户名和密码。</p>
-<h3 id="3、CyberPanel登入"><a href="#3、CyberPanel登入" class="headerlink" title="3、CyberPanel登入"></a>3、CyberPanel登入</h3><p>登入CyberPanel面板，我们可以选择Chinese简体中文。因为面板自带语言包的，我们登入进入后看到简体中文。看到CyberPanel面板后台，体验还是比较好的。毕竟OpenLiteSpeed团队，华人还是比较多的，所以还是有针对性的希望让中文用户使用。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>CyberPanel</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux下本地安装包命令</title>
-    <url>/posts/54714.html</url>
-    <content><![CDATA[<h2 id="centos下安装RPM安装包"><a href="#centos下安装RPM安装包" class="headerlink" title="centos下安装RPM安装包"></a>centos下安装RPM安装包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum localinstall file.rpm</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="ubuntu下安装deb安装包"><a href="#ubuntu下安装deb安装包" class="headerlink" title="ubuntu下安装deb安装包"></a>ubuntu下安装deb安装包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i 安装包名称.deb</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>命令</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMWare Pro 15.0.0 官方版下载地址及注册码</title>
-    <url>/posts/38542.html</url>
-    <content><![CDATA[<h2 id="软件截图"><a href="#软件截图" class="headerlink" title="软件截图"></a>软件截图</h2><p><img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/2018/10/screenshot_2018-10-02_23-01-48-1024x745.png?x-oss-process=image/quality,q_25/resize,m_fill,w_1024,h_745"></p>
-<h2 id="VMWare-Pro-15-可用注册码："><a href="#VMWare-Pro-15-可用注册码：" class="headerlink" title="VMWare Pro 15 可用注册码："></a>VMWare Pro 15 可用注册码：</h2><p>GA70H-8TYE2-H886P-04YZC-YVA84</p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>Windows: <a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.0.0-10134415.exe">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.0.0-10134415.exe</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VMWare</tag>
-        <tag>资源</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vi编辑器的基本使用方法</title>
-    <url>/posts/22356.html</url>
-    <content><![CDATA[<p>vi编辑器是所有Unix及Linux系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器，这里只是简单地介绍一下它的用法和一小部分指令。<br>由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，因此您可以在其他任何介绍vi的地方进一步了解它。<br>Vi也是Linux中最基本的文本编辑器，学会它后，您将在Linux的世界里畅行无阻。 </p>
-<p>1、vi的基本概念 </p>
-<p>基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：</p>
-<ol>
-<li>命令行模式command mode） </li>
-</ol>
-<p>控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。 </p>
-<ol start="2">
-<li>插入模式（Insert mode）</li>
-</ol>
-<p>只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。 </p>
-<ol start="3">
-<li>底行模式（last line mode） </li>
-</ol>
-<p>将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。 不过一般我们在使用时把vi简化成两个模式，就是将底行模式（last line mode）也算入命令行模式command mode）。 </p>
-<p>2、vi的基本操作</p>
-<p> a) 进入vi 在系统提示符号输入vi及文件名称后，就进入vi全屏幕编辑画面： $ vi myfile 不过有一点要特别注意，就是您进入vi之后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。初次使用vi的人都会想先用上下左右键移动光标，结果电脑一直哔哔叫，把自己气个半死，所以进入vi后，先不要乱动，转换到「插入模式（Insert mode）」再说吧！</p>
-<p>  b) 切换至插入模式（Insert mode）编辑文件 在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了。 </p>
-<p>  c) Insert 的切换 您目前处于「插入模式（Insert mode）」，您就只能一直输入文字，如果您发现输错了字！想用光标键往回移动，将该字删除，就要先按一下「ESC」键转到「命令行模式（command mode）」再删除文字。 </p>
-<p>  d) 退出vi及保存文件</p>
-<p>在「命令行模式（command mode）」下，按一下「：」冒号键进入「Last line mode」，例如：</p>
-<p>w filename （输入 「w filename」将文章以指定的文件名filename保存）</p>
-<p>wq (输入「wq」，存盘并退出vi)</p>
-<p>q! (输入q!， 不存盘强制退出vi)</p>
-<p>3、命令行模式（command mode）功能键 </p>
-<p>1）. 插入模式 按「i」切换进入插入模式「insert mode」，按“i”进入插入模式后是从光标当前位置开始输入文件； 按「a」进入插入模式后，是从目前光标所在位置的下一个位置开始输入文字； 按「o」进入插入模式后，是插入新的一行，从行首开始输入文字。 </p>
-<p>2）. 从插入模式切换为命令行模式 按「ESC」键。 </p>
-<p>3）. 移动光标 vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、「k」、「l」，分别控制光标左、下、上、右移一格。 按「ctrl」+「b」：屏幕往“后”移动一页。 按「ctrl」+「f」：屏幕往“前”移动一页。 按「ctrl」+「u」：屏幕往“后”移动半页。 按「ctrl」+「d」：屏幕往“前”移动半页。 按数字「0」：移到文章的开头。 按「G」：移动到文章的最后。 按「$」：移动到光标所在行的“行尾”。 按「^」：移动到光标所在行的“行首” 按「w」：光标跳到下个字的开头 按「e」：光标跳到下个字的字尾 按「b」：光标回到上个字的开头 按「#l」：光标移到该行的第#个位置，如：5l,56l。 </p>
-<p>4）. 删除文字 「x」：每按一次，删除光标所在位置的“后面”一个字符。 「#x」：例如，「6x」表示删除光标所在位置的“后面”6个字符。 「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符。 「#X」：例如，「20X」表示删除光标所在位置的“前面”20个字符。 「dd」：删除光标所在行。 「#dd」：从光标所在行开始删除#行 </p>
-<p>5）. 复制 「yw」：将光标所在之处到字尾的字符复制到缓冲区中。 「#yw」：复制#个字到缓冲区 「yy」：复制光标所在行到缓冲区。 「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。 「p」：将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。 </p>
-<p>6）. 替换 「r」：替换光标所在处的字符。 「R」：替换光标所到之处的字符，直到按下「ESC」键为止。 </p>
-<p>7）. 回复上一次操作 「u」：如果您误执行一个命令，可以马上按下「u」，回到上一个操作。按多次“u”可以执行多次回复。 </p>
-<p>8）. 更改 「cw」：更改光标所在处的字到字尾处 「c#w」：例如，「c3w」表示更改3个字 9）. 跳至指定的行 「ctrl」+「g」列出光标所在行的行号。 「#G」：例如，「15G」，表示移动光标至文章的第15行行首。 </p>
-<p>4、Last line mode下命令简介 在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command mode」下后，再按「：」冒号即可进入「last line mode」。 </p>
-<p>A) 列出行号 「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号。 </p>
-<p>B) 跳到文件中的某一行 「#」：「#」号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行。 </p>
-<p>C) 查找字符 「/关键字」：先按「/」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往后寻找到您要的关键字为止。 「?关键字」：先按「?」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往前寻找到您要的关键字为止。 </p>
-<p>D) 保存文件 「w」：在冒号输入字母「w」就可以将文件保存起来。 </p>
-<p>E) 离开vi 「q」：按「q」就是退出，如果无法离开vi，可以在「q」后跟一个「!」强制离开vi。 「qw」：一般建议离开时，搭配「w」一起使用，这样在退出的时候还可以保存文件。 </p>
-<p>5、vi命令列表 </p>
-<p>1、下表列出命令模式下的一些键的功能： h 左移光标一个字符 l 右移光标一个字符 k 光标上移一行 j 光标下移一行 ^ 光标移动至行首 0 数字“0”，光标移至文章的开头 G 光标移至文章的最后 $ 光标移动至行尾 Ctrl+f 向前翻屏 Ctrl+b 向后翻屏 Ctrl+d 向前翻半屏 Ctrl+u 向后翻半屏 i 在光标位置前插入字符 a 在光标所在位置的后一个字符开始增加 o 插入新的一行，从行首开始输入 ESC 从输入状态退至命令状态 x 删除光标后面的字符 #x 删除光标后的＃个字符 X (大写X)，删除光标前面的字符 #X 删除光标前面的#个字符 dd 删除光标所在的行 #dd 删除从光标所在行数的#行 yw 复制光标所在位置的一个字 #yw 复制光标所在位置的#个字 yy 复制光标所在位置的一行 #yy 复制从光标所在行数的#行 p 粘贴 u 取消操作 cw 更改光标所在位置的一个字 #cw 更改光标所在位置的#个字 </p>
-<p>2、下表列出行命令模式下的一些指令 w filename 储存正在编辑的文件为filename wq filename 储存正在编辑的文件为filename，并退出vi q! 放弃所有修改，退出vi set nu 显示行号 /或? 查找，在/后输入要查找的内容 n 与/或?一起使用，如果查找的内容不是想要找的关键字，按n或向后（与/联用）或向前（与?联用）继续查找，直到找到为止。 </p>
-<p>对于第一次用vi，有几点注意要提醒一下： </p>
-<p>1、用vi打开文件后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。</p>
-<p>切换方法：在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了。</p>
-<p>2、编辑好后，需从插入模式切换为命令行模式才能对文件进行保存，切换方法：按「ESC」键。</p>
-<p>3、保存并退出文件：在命令模式下输入:wq即可！（别忘了wq前面的:）</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>Linux</tag>
-        <tag>php</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>centos7 ssh连接慢的解决方法</title>
-    <url>/posts/58592.html</url>
-    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-<p>按i编辑插入<br>找到<br><code>UseDNS</code>去掉前面的#号 改为 no</p>
-<p><code>GSSAPIAuthentication</code> 改为 no</p>
-<p>然后<code>：wq </code>保存退出</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
-<p>重启</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>centos7安装后没有网络</title>
-    <url>/posts/6609.html</url>
-    <content><![CDATA[<p>以<code>root</code>账号登陆<br>用<code>ip addr</code>命令查看网络参数。<br>打开<code>eth0</code>网卡的配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure>
-
-<p>把<code>NOBOOT</code>参数<code>no</code>，修改为<code>yes</code><br>重启网络或者重启服务器都可</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>centos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>go get出现错误的解决办法</title>
-    <url>/posts/60845.html</url>
-    <content><![CDATA[<p>错误提示<br>unrecognized import path “golang.org/x/sys/windows”: https fetch: Get “<a href="https://golang.org/x/sys/windows?go-get=1&quot;">https://golang.org/x/sys/windows?go-get=1&quot;</a>: dial tcp 216.239.37.1:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.<br>解决办法</p>
-<p>mkdir -p $GOPATH/src/golang.org/x<br>cd $GOPATH/src/golang.org/x<br>git clone <a href="https://github.com/golang/sync.git">https://github.com/golang/sync.git</a><br>git clone <a href="https://github.com/golang/crypto.git">https://github.com/golang/crypto.git</a><br>git clone <a href="https://github.com/golang/sys.git">https://github.com/golang/sys.git</a><br>————————————————</p>
-<p>原文链接：<a href="https://blog.csdn.net/cyLee_/java/article/details/93159032">https://blog.csdn.net/cyLee_/java/article/details/93159032</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>错误</tag>
-        <tag>clone</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux远程拷贝命令scp及出现not a regular file 解决</title>
-    <url>/posts/16090.html</url>
-    <content><![CDATA[<p>最近开始折腾ubuntu使用命令行上传下载还是挺方便的。 想</p>
-<p>备份数据到本地 那就使用scp命令 scp提供了几个选项 在scp后加就行了</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; -p 拷贝文件的时候保留源文件建立的时间。 </span><br><span class="line">&gt; -q 执行文件拷贝时，不显示任何提示消息。 </span><br><span class="line">&gt; -r 拷贝整个目录   </span><br><span class="line">&gt; -v 拷贝文件时，显示提示信息。 </span><br></pre></td></tr></table></figure>
-
-<p>将远程主机192.168.1.23的/home/adm/目录下所有文件下载至本地/home/sun，则命令为：</p>
-<p><code> scp -r root@192.168.1.23:/home/adm/ /home/sun/</code></p>
-<p>回车后输入密码就可以了<br> ps linux 下scp传文件时错误<br> scp: /usr/tools: not a regular file 不能成功传送</p>
-<p>1：有可能没权限 chmod 777 </p>
-<p>2: 在使用scp时加上-r 参数</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>Linux</tag>
-        <tag>scp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pip安装nonebot时报错</title>
-    <url>/posts/46587.html</url>
-    <content><![CDATA[<h2 id="报错如下"><a href="#报错如下" class="headerlink" title="报错如下"></a>报错如下</h2><p> note: This error originates from a subprocess, and is likely not a problem with pip.<br>  ERROR: Failed building wheel for multidict<br>Failed to build yarl multidict<br>ERROR: Could not build wheels for yarl, multidict, which is required to install pyproject.toml-based projects</p>
-<h2 id="问题所在"><a href="#问题所在" class="headerlink" title="问题所在"></a>问题所在</h2><p>缺失对应的whl文件。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>安装对应的whl文件<br>在<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#_pandas">https://www.lfd.uci.edu/~gohlke/pythonlibs/#_pandas</a><br>中搜索安装<br>安装命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install &quot;whl文件所在&quot;</span><br></pre></td></tr></table></figure>
-<p>即可</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu  无线/Wifi 上网速度慢的解决方法</title>
-    <url>/posts/8797.html</url>
-    <content><![CDATA[<p>装了Ubuntu 后连接无线上网，发现出奇的慢。网上查找亲测有效的方法为： </p>
-<p>1、在终端运行：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/modprobe.d/iwlwifi.conf </span><br></pre></td></tr></table></figure>
-
-<p>2、在打开的这个配置文件中空白处添加：</p>
-<p><code>options iwlwifi 11n\_disable=1 </code></p>
-<p>3、保存文件并重启。（本人已成功） 对比win7下速度差不多了</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu如何更改显示器分辨率并永久保存所设置的分辨率</title>
-    <url>/posts/40959.html</url>
-    <content><![CDATA[<p>终端执行命令行如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cvt 1920 1080</span><br><span class="line">xrandr –newmode 1920x1080_60 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync</span><br><span class="line">xrandr –addmode VGA-0 1920x1080_60</span><br><span class="line">xrandr –output VGA-0 –mode 1920x1080_60</span><br></pre></td></tr></table></figure>
-<p>然后执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo gedit .profile</span><br></pre></td></tr></table></figure>
-<p>把以上的命令行复制粘贴到最后即可<br>保存 重启系统，使用<code>xrandr</code>命令查看<br><img src="https://xy07-1251893119.costj.myqcloud.com/2019/04/10/465359891.png" alt="2019-04-10 18-03-21 的屏幕截图.png"></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>命令</tag>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用putty远程管理vps初级</title>
-    <url>/posts/586.html</url>
-    <content><![CDATA[<h2 id="putty介绍及下载"><a href="#putty介绍及下载" class="headerlink" title="putty介绍及下载"></a>putty介绍及下载</h2><p>PuTTY是一个Telnet、SSH、rlogin、纯TCP以及串行接口连接软件，使用它我们可以远程登录vps，并管理vps。 putty下载地址：<a href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe">http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe</a></p>
-<h2 id="使用putty管理vps"><a href="#使用putty管理vps" class="headerlink" title="使用putty管理vps"></a>使用putty管理vps</h2><p>为了方便演示，这里假设ip地址，SSH端口，及系统密码为：</p>
-<p> <code>ip地址:    192.168.0.1 ssh端口：  22 系统密码：  password</code></p>
-<h3 id="1、登入putty"><a href="#1、登入putty" class="headerlink" title="1、登入putty"></a>1、登入putty</h3><p>在putty中填入vps的ip地址及ssh端口号，如下图所示<br><a href="https://blog.jkjoy.cn/wp-content/uploads/2016/10/putty1.jpg"><img src="https://blog.jkjoy.cn/wp-content/uploads/2016/10/putty1.jpg" alt="putty1"></a> 点击open，即可连接vps服务器。</p>
-<h3 id="2、输入用户名及密码"><a href="#2、输入用户名及密码" class="headerlink" title="2、输入用户名及密码"></a>2、输入用户名及密码</h3><p>登陆进去之后会要求输入用户名及密码，其中用户名为<code>root</code>，密码为之前得到的系统密码（注意密码不会显示出来）。</p>
-<h3 id="3、修改为常用密码"><a href="#3、修改为常用密码" class="headerlink" title="3、修改为常用密码"></a>3、修改为常用密码</h3><p>然后修改系统密码为自己常用的密码，输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
-
-<p>然后会要求你连续两次输入设定的密码，密码不会显示出来，输入完毕回车即可。 下一次就可以采用该密码登陆vps了。</p>
-<h3 id="4、putty中的操作"><a href="#4、putty中的操作" class="headerlink" title="4、putty中的操作"></a>4、putty中的操作</h3><p><code>复制</code>：选中然后“ctrl+c”即可 </p>
-<p><code>粘贴</code>：复制好之后鼠标右键点击下即可</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用yum提示Error: rpmdb open failed的解决方案</title>
-    <url>/posts/64318.html</url>
-    <content><![CDATA[<p>使用yum或者rpm安装包时出现问题，安装时报出大约如下错误</p>
-<blockquote>
-<p>rpmdb: Thread/process35884/139793484506880failed: Thread died inBerkeley DB library error: db3 error(-30974) from dbenv-&gt;failchk: DB_RUNRECOVERY: Fatal error, run database recovery error: cannot openPackages index using db3 -  (-30974) error: cannot openPackages database in/var/lib/rpm CRITICAL:yum.main: Error: rpmdb openfailed</p>
-</blockquote>
-<p>这多半是因为rpm数据库出现损坏所致，此错误可能导致多数(甚至是所有的)rpm软件的升级、安装甚至是删除都会出现问题。 解决办法如下： 修复此错误，请以root身份在终端输入以下命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /var/lib/rpm      # rpmdb所在目录    </span><br><span class="line">ls | grep &#x27;db.&#x27;   # 列出相关rpmdb文件   </span><br><span class="line">rm -f \_\_db.\*     # 清除原rpmdb文件    </span><br><span class="line">rpm --rebuilddb     # 重建rpm数据库    </span><br><span class="line">yum clean all     # 清除所有yum的缓存</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>半年没有更新博客了</title>
-    <url>/posts/55578.html</url>
-    <content><![CDATA[<p>不是遗忘了，而是大多数时间不知道写些什么。 </p>
-<p>人的想法总是很多，可真正做到的没有多少。</p>
-<p>其实有时候的灵机一动可能会让自己都叫绝的主意在自己的脑海里也只是转瞬即逝，总是为这种莫名的灵感感到可惜。<br>因为不善于捕捉这些，所以日子总是过的稀里糊涂而没有条理。</p>
-<p>说的好听叫随性。<br>这种没有约束的日子没有目标没有目的，迷茫的心里总是空落落的。 </p>
-<p>写博客也是需要有点文采的，可惜，我没有。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在AWS EC2上使用root用户登录</title>
-    <url>/posts/22653.html</url>
-    <content><![CDATA[<p>aws ec2默认是使用<code>ec2-user</code>账号登陆的，对很多文件夹是没有权限的</p>
-<p>如何使用root账号执行命令就是一个问题了。</p>
-<p>解决办法如下： </p>
-<p>1.根据官网提供的方法登录连接到EC2服务器（官网推荐windows用户使用PUTTY连接）<br>主机：是服务器的<code>Public DNS </code><br>端口：22 </p>
-<p>2.创建root的密码，输入如下命令： </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo passwd root </span><br></pre></td></tr></table></figure>
-<p>3.然后会提示你输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">new password</span><br></pre></td></tr></table></figure>
-<p>输入一个你要设置的root的密码，需要你再输入一遍进行验证。<br>4.接下来，切换到root身份，输入如下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su root </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>5.使用root身份编辑亚马逊云主机的ssh登录方式，<br>找到<code> PasswordAuthentication no</code>，把<code>no</code>改成<code>yes</code>。<br>输入： </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/ssh/sshd\_config </span><br></pre></td></tr></table></figure>
-<p>6.接下来，要重新启动下sshd，如下命令： </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo /sbin/service sshd restart </span><br></pre></td></tr></table></figure>
-<p>7.然后再切换到root身份 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su root </span><br></pre></td></tr></table></figure>
-<p>8.再为原来的”ec2-user”添加登录密码。<br>如下命令： </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">passwd ec2-user </span><br></pre></td></tr></table></figure>
-<p>按提示，两次输入密码。<br>9.修改sshd配置文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd\_config </span><br></pre></td></tr></table></figure>
-
-<p><code>PermitRootLogin</code>这行改为<code>PermitRootLogin yes</code><br><code>PasswordAuthentication no</code>改为<code>PasswordAuthentication yes</code><br><code>UsePAM yes</code>改为 <code>UsePAM no </code><br>10.重启AWS VPS，就可以使用root正常登陆了</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>AWS</tag>
-        <tag>EC2</tag>
-        <tag>ROOT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>宝塔BT面板开启SSL证书后，后台打不开怎么解决</title>
-    <url>/posts/7423.html</url>
-    <content><![CDATA[<h2 id="宝塔BT面板面板SSL的作用："><a href="#宝塔BT面板面板SSL的作用：" class="headerlink" title="宝塔BT面板面板SSL的作用："></a>宝塔BT面板面板SSL的作用：</h2><p>防止面板账号密码被嗅探，属于需要很高级别安全等级或经常在不安全的网络环境下使用才需要开启此功能。 <img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/2018/09/QQ%E6%88%AA%E5%9B%BE20180913123923.png"></p>
-<h2 id="开启后常见的问题："><a href="#开启后常见的问题：" class="headerlink" title="开启后常见的问题："></a>开启后常见的问题：</h2><h3 id="1-浏览器显示不安全"><a href="#1-浏览器显示不安全" class="headerlink" title="1.浏览器显示不安全"></a>1.浏览器显示不安全</h3><p>正常，此为自签证书，不被信任，直接不理会就可以了</p>
-<h3 id="2-开启后，因不被信任没办法打开，如何设置放行"><a href="#2-开启后，因不被信任没办法打开，如何设置放行" class="headerlink" title="2.开启后，因不被信任没办法打开，如何设置放行"></a>2.开启后，因不被信任没办法打开，如何设置放行</h3><p>我们在回帖处截图了IE/Firefox/Chrome的放行方法，其他浏览器也类似，自己多按几次试试。</p>
-<h3 id="3-开启面板后无法访问"><a href="#3-开启面板后无法访问" class="headerlink" title="3.开启面板后无法访问"></a>3.开启面板后无法访问</h3><p>可以通过在SSH上手动输入以下命令关闭SSL</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -f /www/server/panel/data/ssl.pl &amp;&amp; /etc/init.d/bt restart</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>bt</tag>
-        <tag>SSL</tag>
-        <tag>宝塔</tag>
-        <tag>面板</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>宝塔7.7专业版开心版</title>
-    <url>/posts/61565.html</url>
-    <content><![CDATA[<p>ssh运行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://v7.hostcli.com/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>宝塔</tag>
-        <tag>开心版</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搬瓦工VPS桌面监控工具BandwagongVPS_controller</title>
-    <url>/posts/42100.html</url>
-    <content><![CDATA[<h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/org/2018/07/2018070802142057.png"></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p><img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/org/2018/07/2018070802141179.png"> 在搬瓦工VPS 管理后台获得 API 填写即可</p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://down.asbid.cn/Windows/BandwagongVPS_controller.exe" title="本地下载">本地下载</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>搬瓦工</tag>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搬瓦工bandwagonhost vps新手使用教程</title>
-    <url>/posts/7743.html</url>
-    <content><![CDATA[<h2 id="搬瓦工官网地址无法登陆"><a href="#搬瓦工官网地址无法登陆" class="headerlink" title="搬瓦工官网地址无法登陆"></a>搬瓦工官网地址无法登陆</h2><p>目前搬瓦工官网地址无法直接访问，官方给出了镜像地址，请通过镜像地址管理vps。 </p>
-<p>官方镜像地址：<a href="http://bwh88.net/aff.php?aff=65816">http://bwh88.net</a></p>
-<h2 id="登入kiwiVM控制面板"><a href="#登入kiwiVM控制面板" class="headerlink" title="登入kiwiVM控制面板"></a>登入kiwiVM控制面板</h2><p>买好搬瓦工banwagonhost vps之后，一般会在开通邮件里给出登陆的地址及账号密码，登陆之后会看到如下界面 </p>
-<p>点击Services–My Services选项卡，来到如下页面 </p>
-<p>点击kiwiVM control panel，进入后台管理界面 </p>
-<h2 id="重装系统"><a href="#重装系统" class="headerlink" title="重装系统"></a>重装系统</h2><p>首先在Main Controls 找到 Actions:，并点击stop </p>
-<p>然后点击 Install new OS，重装系统，<br>这里以debian-6.0-x86为例，选中，点击reload，<br>开始重装，很快就会重装好。 </p>
-<h2 id="获取vps远程登录信息"><a href="#获取vps远程登录信息" class="headerlink" title="获取vps远程登录信息"></a>获取vps远程登录信息</h2><p>这里需要记录vps的ip地址，SSH端口，及系统密码方便我们使用putty远程管理vps。<br> 如果不会使用putty，可以参看这篇文章<br> <a href="https://blog.sunpeiwen.com/linux/shi-yong-putty-yuan-cheng-guan-li-vps-chu-ji/">使用putty远程管理vps</a><br> ip地址及SSH端口：在Main Control里可以找到。 </p>
-<p> 系统密码： 点击Root Password Modification，系统会生成一串密码，记录下该密码</p>
-<h2 id="更换ip"><a href="#更换ip" class="headerlink" title="更换ip"></a>更换ip</h2><p>有时会遇到ip被屏蔽的状况，这是可以考虑换一个ip，换ip的话有两种方法：<br>1）向客服提交ticket，让他给你换；<br>2）在后台切换。我给大家介绍下怎么自行切换ip。<br>进入到Migrate To another DC，出现如下界面</p>
-<p> 值得注意的是它一般有多个机房位置可供切换：亚利桑那（位于西海岸）、洛杉矶（位于西海岸）、弗罗里达、荷兰等。<br> 为了达到切换ip的目的，我们可以先切换机房至其他机房，然后再切换回来，这时一般ip就会更换了。<br> 切换机房时间很快，而且不会影响到vps里的数据，大可以放心。</p>
-<p>  本人使用的就是搬瓦工的VPS<br>  bbs.xiaoxiao.su</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>搬瓦工</tag>
-        <tag>教程</tag>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>笔记本电脑WiFi开关打不开怎么办</title>
-    <url>/posts/42952.html</url>
-    <content><![CDATA[<p>前天电脑开机WIFI打不开。WIFI开关显示关闭状态，且一直打不开开关。在网上搜索到很多解决办法不外乎以下几种。 1管理-设备-网络适配器  可以看到无线网卡，说明网卡是可以识别的，且驱动完好，排除了网卡硬件的问题。 2使用热键进行开启FN+F2开启，没反应。 3ICS服务确定已经打开。在开始菜单下面的搜索框中输入服务——找到服务后单击打开即可。找到Internet Connection Sharing (ICS)服务，单击启动，然后右击选择属性后——将其改为自动启动。还是没用。 4进入BIOS，恢复默认。或者</p>
-<blockquote>
-<p>一般情况下，按“F2”键进入BIOS中，在Advanced项或Configuration项下有无线网卡的开启关闭选项，BIOS下无线网卡选项具体有4种描述方式：Wireless；Wireless LAN；Wireless LAN Support；WLAN Device。如下图所示设置成“Enabled”（启用）的状态.</p>
-</blockquote>
-<p>完事儿重启。WIFI正常使用。 奇怪的是我并没有修改BIOS设置。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>笔记本</tag>
-        <tag>BIOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自带邮局的vps面板vestacp</title>
-    <url>/posts/48280.html</url>
-    <content><![CDATA[<h1 id="Supported-Operating-Systems"><a href="#Supported-Operating-Systems" class="headerlink" title="Supported Operating Systems:"></a>Supported Operating Systems:</h1><h1 id="RHEL-CentOS-5-6-7"><a href="#RHEL-CentOS-5-6-7" class="headerlink" title="RHEL / CentOS 5,6,7"></a>RHEL / CentOS 5,6,7</h1><h1 id="Debian-6-7-8"><a href="#Debian-6-7-8" class="headerlink" title="Debian 6,7,8"></a>Debian 6,7,8</h1><h1 id="Ubuntu-12-04-16-10"><a href="#Ubuntu-12-04-16-10" class="headerlink" title="Ubuntu 12.04-16.10"></a>Ubuntu 12.04-16.10</h1><h1 id="Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器"><a href="#Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器" class="headerlink" title="Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器"></a>Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器</h1><blockquote>
-<p>ssh <a href="mailto:&#x72;&#111;&#x6f;&#x74;&#x40;&#x79;&#x6f;&#x75;&#x72;&#x2e;&#x73;&#x65;&#x72;&#x76;&#x65;&#114;">&#x72;&#111;&#x6f;&#x74;&#x40;&#x79;&#x6f;&#x75;&#x72;&#x2e;&#x73;&#x65;&#x72;&#x76;&#x65;&#114;</a></p>
-</blockquote>
-<h1 id="Download-installation-script-下载安装脚本"><a href="#Download-installation-script-下载安装脚本" class="headerlink" title="Download installation script 下载安装脚本"></a>Download installation script 下载安装脚本</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O http://vestacp.com/pub/vst-install.sh</span><br></pre></td></tr></table></figure>
-
-<h1 id="Run-it-运行之"><a href="#Run-it-运行之" class="headerlink" title="Run it 运行之"></a>Run it 运行之</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash vst-install.sh</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<h1 id="Run-it-按照需求nginx-phpfpm-csftpd-exim-iptables-mysql环境"><a href="#Run-it-按照需求nginx-phpfpm-csftpd-exim-iptables-mysql环境" class="headerlink" title="Run it 按照需求nginx+phpfpm+csftpd+exim+iptables+mysql环境"></a>Run it 按照需求nginx+phpfpm+csftpd+exim+iptables+mysql环境</h1> <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash vst-install.sh --nginx <span class="built_in">yes</span> --phpfpm <span class="built_in">yes</span> --apache no --vsftpd <span class="built_in">yes</span> --proftpd no --exim <span class="built_in">yes</span> --dovecot no --spamassassin no --clamav no --named no --iptables <span class="built_in">yes</span> --fail2ban no --mysql <span class="built_in">yes</span> --postgresql no --remi <span class="built_in">yes</span> --quota no</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>vestacp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决apt-get安装中的E: Sub-process /usr/bin/dpkg returned an error code (1)问题</title>
-    <url>/posts/2560.html</url>
-    <content><![CDATA[<p>在用apt-get安装软件包的时候遇到<code>E: Sub-process /usr/bin/dpkg returned an error code (1)</code>问题，解决方法如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/lib/dpkg/sudo <span class="built_in">mv</span> info/ info_bak          <span class="comment"># 现将info文件夹更名</span></span><br><span class="line">sudo <span class="built_in">mkdir</span> info                 <span class="comment"># 再新建一个新的info文件夹</span></span><br><span class="line">sudo apt-get update             <span class="comment"># 更新</span></span><br><span class="line">sudo apt-get -f install         <span class="comment"># 修复</span></span><br><span class="line">sudo <span class="built_in">mv</span> info/* info_bak/        <span class="comment"># 执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info_bak文件夹下</span></span><br><span class="line">sudo <span class="built_in">rm</span> -rf info                <span class="comment"># 把自己新建的info文件夹删掉</span></span><br><span class="line">sudo <span class="built_in">mv</span> info_bak info           <span class="comment"># 把以前的info文件夹重新改回名</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>Linux</tag>
-        <tag>报错</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿里云ECS使用宝塔面板MYSQL自动停止运行</title>
-    <url>/posts/41774.html</url>
-    <content><![CDATA[<h2 id="近几日出现的问题"><a href="#近几日出现的问题" class="headerlink" title="近几日出现的问题"></a>近几日出现的问题</h2><blockquote>
-<p>Mysql自动停止 内存占满 负载超负荷</p>
-</blockquote>
-<p>这些问题在腾讯云的主机上从来没出现过</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><img src="https://mrwen.oss-cn-shanghai.aliyuncs.com/2018/07/QQ%E6%88%AA%E5%9B%BE20180708110618.png"> </p>
-<p>进入宝塔面板的软件管理-MYSQL设置-性能调整 如上所示 内存终于维持在1.7G左右的状态下了。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>宝塔</tag>
-        <tag>mysql</tag>
-        <tag>性能</tag>
-        <tag>阿里云</tag>
       </tags>
   </entry>
   <entry>

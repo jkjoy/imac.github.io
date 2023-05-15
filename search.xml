@@ -229,10 +229,8 @@
   <entry>
     <title>NEC VK22T黑苹果OC0.8.0引导macOS12.4</title>
     <url>/posts/1662.html</url>
-    <content><![CDATA[<h1 id="NEC-VK22评测"><a href="#NEC-VK22评测" class="headerlink" title="NEC VK22评测"></a>NEC VK22评测</h1><p>地址请参阅<br>[collapse status=”collapse-block” label=”测试”]这里编辑收缩框内容[/collapse]</p>
-<p><em>斜体文字</em></p>
-<p>[cid=”262”]</p>
-<h2 id="OPENCORE引导下载"><a href="#OPENCORE引导下载" class="headerlink" title="OPENCORE引导下载"></a>OPENCORE引导下载</h2><p>[hide]<br><a href="https://blogcdn.asbid.cn/2022/06/01/1654043604.zip">nec vk22.zip</a><br>[/hide]</p>
+    <content><![CDATA[<h1 id="NEC-VK22评测"><a href="#NEC-VK22评测" class="headerlink" title="NEC VK22评测"></a>NEC VK22评测</h1><p>地址请参阅</p>
+<h2 id="OPENCORE引导下载"><a href="#OPENCORE引导下载" class="headerlink" title="OPENCORE引导下载"></a>OPENCORE引导下载</h2><p><a href="https://blogcdn.asbid.cn/2022/06/01/1654043604.zip">nec vk22.zip</a></p>
 ]]></content>
       <categories>
         <category>Hackintosh</category>
@@ -241,7 +239,6 @@
         <tag>黑苹果</tag>
         <tag>opencore</tag>
         <tag>vk22</tag>
-        <tag>nec</tag>
       </tags>
   </entry>
   <entry>
@@ -1343,7 +1340,7 @@
     <title>自带邮局的vps面板vestacp</title>
     <url>/posts/48280.html</url>
     <content><![CDATA[<h1 id="Supported-Operating-Systems"><a href="#Supported-Operating-Systems" class="headerlink" title="Supported Operating Systems:"></a>Supported Operating Systems:</h1><h1 id="RHEL-CentOS-5-6-7"><a href="#RHEL-CentOS-5-6-7" class="headerlink" title="RHEL / CentOS 5,6,7"></a>RHEL / CentOS 5,6,7</h1><h1 id="Debian-6-7-8"><a href="#Debian-6-7-8" class="headerlink" title="Debian 6,7,8"></a>Debian 6,7,8</h1><h1 id="Ubuntu-12-04-16-10"><a href="#Ubuntu-12-04-16-10" class="headerlink" title="Ubuntu 12.04-16.10"></a>Ubuntu 12.04-16.10</h1><h1 id="Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器"><a href="#Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器" class="headerlink" title="Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器"></a>Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器</h1><blockquote>
-<p>ssh <a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#x40;&#x79;&#111;&#x75;&#114;&#x2e;&#115;&#101;&#114;&#x76;&#x65;&#x72;">&#x72;&#x6f;&#x6f;&#x74;&#x40;&#x79;&#111;&#x75;&#114;&#x2e;&#115;&#101;&#114;&#x76;&#x65;&#x72;</a></p>
+<p>ssh <a href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#x79;&#111;&#117;&#114;&#x2e;&#115;&#101;&#114;&#118;&#x65;&#114;">&#114;&#111;&#x6f;&#116;&#64;&#x79;&#111;&#117;&#114;&#x2e;&#115;&#101;&#114;&#118;&#x65;&#114;</a></p>
 </blockquote>
 <h1 id="Download-installation-script-下载安装脚本"><a href="#Download-installation-script-下载安装脚本" class="headerlink" title="Download installation script 下载安装脚本"></a>Download installation script 下载安装脚本</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O http://vestacp.com/pub/vst-install.sh</span><br></pre></td></tr></table></figure>
 

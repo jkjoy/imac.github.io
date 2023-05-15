@@ -273,18 +273,13 @@
     <url>/posts/50354.html</url>
     <content><![CDATA[<p>OpenCore 关闭系统保护方法；</p>
 <p>NVRAM — 7C436110-AB2A-4BBB-A880-FE41995C9F82 — csr-active-config 填入DATA值：</p>
-<pre><code>E7030000
-</code></pre>
-<p>如果安装出现进入安装界面空白 则需要开启SIP。</p>
+<p>E7030000<br>如果安装出现进入安装界面空白 则需要开启SIP。</p>
 ]]></content>
       <categories>
         <category>Hackintosh</category>
       </categories>
       <tags>
         <tag>opencore</tag>
-        <tag>系统</tag>
-        <tag>nvram</tag>
-        <tag>关闭</tag>
       </tags>
   </entry>
   <entry>
@@ -591,8 +586,8 @@
         <category>Hackintosh</category>
       </categories>
       <tags>
-        <tag>系统</tag>
         <tag>文件</tag>
+        <tag>系统</tag>
         <tag>镜像</tag>
         <tag>添加</tag>
         <tag>实测</tag>
@@ -818,8 +813,8 @@
       </categories>
       <tags>
         <tag>macos</tag>
-        <tag>系统</tag>
         <tag>苹果</tag>
+        <tag>系统</tag>
         <tag>安装</tag>
         <tag>论坛</tag>
         <tag>命令</tag>
@@ -1348,7 +1343,7 @@
     <title>自带邮局的vps面板vestacp</title>
     <url>/posts/48280.html</url>
     <content><![CDATA[<h1 id="Supported-Operating-Systems"><a href="#Supported-Operating-Systems" class="headerlink" title="Supported Operating Systems:"></a>Supported Operating Systems:</h1><h1 id="RHEL-CentOS-5-6-7"><a href="#RHEL-CentOS-5-6-7" class="headerlink" title="RHEL / CentOS 5,6,7"></a>RHEL / CentOS 5,6,7</h1><h1 id="Debian-6-7-8"><a href="#Debian-6-7-8" class="headerlink" title="Debian 6,7,8"></a>Debian 6,7,8</h1><h1 id="Ubuntu-12-04-16-10"><a href="#Ubuntu-12-04-16-10" class="headerlink" title="Ubuntu 12.04-16.10"></a>Ubuntu 12.04-16.10</h1><h1 id="Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器"><a href="#Connect-to-your-server-as-root-via-SSH-用ssh工具和ROOT用户连接到你的服务器" class="headerlink" title="Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器"></a>Connect to your server as root via SSH 用ssh工具和ROOT用户连接到你的服务器</h1><blockquote>
-<p>ssh <a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#x40;&#x79;&#x6f;&#117;&#x72;&#x2e;&#115;&#x65;&#114;&#x76;&#101;&#x72;">&#x72;&#x6f;&#x6f;&#x74;&#x40;&#x79;&#x6f;&#117;&#x72;&#x2e;&#115;&#x65;&#114;&#x76;&#101;&#x72;</a></p>
+<p>ssh <a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#x40;&#x79;&#111;&#x75;&#114;&#x2e;&#115;&#101;&#114;&#x76;&#x65;&#x72;">&#x72;&#x6f;&#x6f;&#x74;&#x40;&#x79;&#111;&#x75;&#114;&#x2e;&#115;&#101;&#114;&#x76;&#x65;&#x72;</a></p>
 </blockquote>
 <h1 id="Download-installation-script-下载安装脚本"><a href="#Download-installation-script-下载安装脚本" class="headerlink" title="Download installation script 下载安装脚本"></a>Download installation script 下载安装脚本</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O http://vestacp.com/pub/vst-install.sh</span><br></pre></td></tr></table></figure>
 
